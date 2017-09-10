@@ -8,9 +8,13 @@ import android.view.View;
 import android.widget.ImageView;
 
 
+import com.jyh.sixthspace.SixthApplication;
+import com.jyh.sixthspace.model.VideoInfo;
 import com.jyh.sixthspace.model.VideoType;
 import com.jyh.sixthspace.utlis.ImgLoadUtils;
 import com.jyh.sixthspace.view.activity.MovieDetailsActivity;
+import com.jyh.sixthspace.view.activity.RecommendMovieInfosActivity;
+
 /**
  * Created by Administrator on 2017/5/22.
  */
@@ -40,7 +44,10 @@ public class MoviesTypeListItemViewModel extends BaseObservable {
     }
 
     public void go2Activity(View view) {
-        Intent intent=new Intent(mContext, MovieDetailsActivity.class);
+        Intent intent = new Intent(SixthApplication.getContext(), RecommendMovieInfosActivity.class);
+        VideoInfo videoInfo=new VideoInfo();
+        videoInfo.setDataId(info.dataId);
+        intent.putExtra("videoInfo", videoInfo);
         mContext.startActivity(intent);
     }
 }
