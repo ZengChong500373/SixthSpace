@@ -35,6 +35,7 @@ public interface VideoMethods {
     /**
      * 影片分类列表
      *http://api.svipmovie.com/front/columns/getVideoList.do?catalogId=402834815584e463015584e538140009?pnum=1
+
      * @param catalogId
      * @param pnum
      * @return

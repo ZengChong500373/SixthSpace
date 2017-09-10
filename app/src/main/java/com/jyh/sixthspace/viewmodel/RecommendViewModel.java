@@ -9,8 +9,11 @@ import com.jyh.sixthspace.model.VideoHttpResponse;
 import com.jyh.sixthspace.model.VideoInfo;
 import com.jyh.sixthspace.model.VideoRes;
 import com.jyh.sixthspace.model.VideoType;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
@@ -22,18 +25,20 @@ import io.reactivex.schedulers.Schedulers;
 
 public class RecommendViewModel extends Observable {
     private SparseArray<List<VideoInfo>> mapInfos;
+
     public RecommendViewModel() {
-        this.mapInfos =new SparseArray<>();
+        this.mapInfos = new SparseArray<>();
         loadDataFromNet();
     }
+
     public void loadDataFromNet() {
         NetWork.getVideo().getHomePage().map(new Function<VideoHttpResponse<VideoRes>, SparseArray<List<VideoInfo>>>() {
             @Override
             public SparseArray<List<VideoInfo>> apply(VideoHttpResponse<VideoRes> videoResVideoHttpResponse) throws Exception {
                 List<VideoType> list = videoResVideoHttpResponse.getRet().list;
-                SparseArray mapList=new SparseArray();
-                mapList.put(ReCommendConstant.RECOMMEND_VIEWPAGER,list.get(0).childList);
-                mapList.put(ReCommendConstant.RECOMMEND_RECYCLER,list.get(3).childList);
+                SparseArray mapList = new SparseArray();
+                mapList.put(ReCommendConstant.RECOMMEND_VIEWPAGER, filterNoUseData(list,0));
+                mapList.put(ReCommendConstant.RECOMMEND_RECYCLER, filterNoUseData(list,list.size()-2));
                 return mapList;
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<SparseArray<List<VideoInfo>>>() {
@@ -44,14 +49,14 @@ public class RecommendViewModel extends Observable {
         }, new Consumer<Throwable>() {
             @Override
             public void accept(Throwable throwable) throws Exception {
-                Log.e("error",throwable.toString());
+                Log.e("error", throwable.toString());
             }
         });
 
     }
 
     public void DataChang(SparseArray<List<VideoInfo>> value) {
-        mapInfos=value;
+        mapInfos = value;
         setChanged();
         notifyObservers();
     }
@@ -59,4 +64,22 @@ public class RecommendViewModel extends Observable {
     public SparseArray<List<VideoInfo>> getMapInfos() {
         return mapInfos;
     }
+
+        public List<VideoInfo>  filterNoUseData(List<VideoType> list,int  position){
+            List<VideoInfo> filterList=new ArrayList<>();
+            for (int i=0;i<list.get(position).childList.size();i++){
+                VideoInfo info=list.get(position).childList.get(i);
+              String loadType=  info.getLoadType();
+              if ("video".equalsIgnoreCase(loadType)){
+                  filterList.add(info);
+              }
+            }
+            if (filterList.size()<=3&&list.size()>=position+2){
+                filterNoUseData(list,position+1);
+            }
+            return filterList;
+        }
+
+
+
 }
