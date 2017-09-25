@@ -5,7 +5,6 @@ import android.util.SparseArray;
 
 import com.jyh.sixthspace.live.DemoLiveFragment;
 import com.jyh.sixthspace.view.fragment.MoviesFragment;
-import com.jyh.sixthspace.view.fragment.LiveFragment;
 import com.jyh.sixthspace.view.fragment.RecommendFragment;
 import com.jyh.sixthspace.view.fragment.TeleVisionFragment;
 
@@ -14,7 +13,7 @@ import com.jyh.sixthspace.view.fragment.TeleVisionFragment;
  */
 
 public class MainFragmentFactory {
-  private  static   SparseArray<Fragment>  map=new SparseArray<>();
+  private  static   SparseArray<Fragment>  map=new SparseArray<Fragment>();
     public static Fragment getFragment(int posistion){
         Fragment  currentFragment=map.get(posistion) ;
           if (currentFragment==null){

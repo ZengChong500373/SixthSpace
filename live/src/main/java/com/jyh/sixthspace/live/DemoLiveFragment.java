@@ -1,4 +1,5 @@
-package com.jyh.sixthspace.view.fragment;
+package com.jyh.sixthspace.live;
+
 
 
 import android.databinding.DataBindingUtil;
@@ -9,15 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jyh.sixthspace.R;
-import com.jyh.sixthspace.databinding.FragmentLiveBinding;
+import com.jyh.sixthspace.live.databinding.FragmentLiveBinding;
 
 
 /**
  * Created by Administrator on 2017/4/13.
  */
 
-public class LiveFragment extends Fragment {
+public class DemoLiveFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
