@@ -63,15 +63,6 @@ public class MoviesFragmentViewModel {
         picList.add(R.drawable.movies_micro_film);
         picList.add(R.drawable.movies_entertainment_information);
 
-//        List<VideoInfo> list = new ArrayList<>();
-//        list.add(new VideoInfo("精彩推荐", R.drawable.moives_recmmend,"402834815584e463015584e53843000b"));
-//        list.add(new VideoInfo("好莱坞", R.drawable.movies_hollywood,"402834815584e463015584e538140009"));
-//        list.add(new VideoInfo("香港映象", R.drawable.movies_hongkong_film,"ff8080815b9075a6015b94ef79dc0284"));
-//        list.add(new VideoInfo("午夜剧场", R.drawable.movies_midnite_matinee,"402834815584e463015584e538d30011"));
-//        list.add(new VideoInfo("微电影", R.drawable.movies_micro_film,"402834815584e463015584e538ea0012"));
-//        list.add(new VideoInfo("热点资讯", R.drawable.movies_entertainment_information,"402834815584e463015584e539700019"));
-//        callBack.onRequestSuccess(list);
-
         NetWork.getVideo().getHomePage().map(new Function<VideoHttpResponse<VideoRes>, List<VideoInfo>>() {
             @Override
             public List<VideoInfo> apply(VideoHttpResponse<VideoRes> videoResVideoHttpResponse) throws Exception {

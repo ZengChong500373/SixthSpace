@@ -37,8 +37,8 @@ public class RecommendViewModel extends Observable {
             public SparseArray<List<VideoInfo>> apply(VideoHttpResponse<VideoRes> videoResVideoHttpResponse) throws Exception {
                 List<VideoType> list = videoResVideoHttpResponse.getRet().list;
                 SparseArray mapList = new SparseArray();
-                mapList.put(ReCommendConstant.RECOMMEND_VIEWPAGER, filterNoUseData(list,0));
-                mapList.put(ReCommendConstant.RECOMMEND_RECYCLER, filterNoUseData(list,list.size()-2));
+                mapList.put(ReCommendConstant.RECOMMEND_VIEWPAGER, filterNoUseData(list, 0));
+                mapList.put(ReCommendConstant.RECOMMEND_RECYCLER, filterNoUseData(list, list.size()-3));
                 return mapList;
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<SparseArray<List<VideoInfo>>>() {
@@ -64,22 +64,25 @@ public class RecommendViewModel extends Observable {
     public SparseArray<List<VideoInfo>> getMapInfos() {
         return mapInfos;
     }
-
-        public List<VideoInfo>  filterNoUseData(List<VideoType> list,int  position){
-            List<VideoInfo> filterList=new ArrayList<>();
-            for (int i=0;i<list.get(position).childList.size();i++){
-                VideoInfo info=list.get(position).childList.get(i);
-              String loadType=  info.getLoadType();
-              if ("video".equalsIgnoreCase(loadType)){
-                  filterList.add(info);
-              }
-            }
-            if (filterList.size()<=3&&list.size()>=position+2){
-                filterNoUseData(list,position+1);
-            }
+   List<VideoInfo> filterList;
+    public List<VideoInfo> filterNoUseData(List<VideoType> list, int position) {
+         filterList = new ArrayList<>();
+        if (list.size() < position) {
             return filterList;
         }
+        for (int i = 0; i < list.get(position).childList.size(); i++) {
+            VideoInfo info = list.get(position).childList.get(i);
+            String loadType = info.getLoadType();
+            if ("video".equalsIgnoreCase(loadType)||"videoList".equalsIgnoreCase(loadType)) {
+                filterList.add(info);
+            }
 
+        }
+        if (filterList.size() <= 3 && list.size() >= position + 2) {
+            filterNoUseData(list, position + 1);
+        }
+        return filterList;
+    }
 
 
 }
