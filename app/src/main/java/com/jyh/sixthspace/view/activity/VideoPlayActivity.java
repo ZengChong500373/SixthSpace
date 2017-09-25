@@ -2,7 +2,8 @@ package com.jyh.sixthspace.view.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import com.jyh.sixthspace.base.BaseActivity;
+
+import com.jyh.sixthspace.sdk.base.BaseActivity;
 
 
 /**

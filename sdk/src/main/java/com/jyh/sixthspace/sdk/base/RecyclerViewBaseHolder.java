@@ -1,7 +1,8 @@
-package com.jyh.sixthspace.base;
+package com.jyh.sixthspace.sdk.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
 /**
  * Created by jyh on 2016/9/12.
  */

@@ -4,7 +4,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.util.SparseArray;
 
 import com.jyh.sixthspace.R;
-import com.jyh.sixthspace.base.LazyFragment;
+import com.jyh.sixthspace.sdk.base.LazyFragment;
 import com.jyh.sixthspace.databinding.FragmentRecommendBinding;
 import com.jyh.sixthspace.model.VideoInfo;
 import com.jyh.sixthspace.view.adapter.RecommendRecyclerAdapter;

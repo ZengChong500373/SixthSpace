@@ -3,16 +3,16 @@ package com.jyh.sixthspace.viewmodel;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseArray;
+
 
 import com.jyh.sixthspace.R;
-import com.jyh.sixthspace.base.RequestCallBack;
-import com.jyh.sixthspace.constant.ReCommendConstant;
+
 import com.jyh.sixthspace.http.NetWork;
 import com.jyh.sixthspace.model.VideoHttpResponse;
 import com.jyh.sixthspace.model.VideoInfo;
 import com.jyh.sixthspace.model.VideoRes;
 import com.jyh.sixthspace.model.VideoType;
+import com.jyh.sixthspace.sdk.base.RequestCallBack;
 
 
 import java.util.ArrayList;

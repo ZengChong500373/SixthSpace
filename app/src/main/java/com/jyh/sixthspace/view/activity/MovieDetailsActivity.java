@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
 
-import com.jyh.sixthspace.base.BaseActivity;
+import com.jyh.sixthspace.sdk.base.BaseActivity;
 
 /**
  * Created by Administrator on 2017/5/22.

@@ -1,7 +1,6 @@
-package com.jyh.sixthspace.base;
+package com.jyh.sixthspace.sdk.base;
 
 import android.view.View;
-
 
 
 /**

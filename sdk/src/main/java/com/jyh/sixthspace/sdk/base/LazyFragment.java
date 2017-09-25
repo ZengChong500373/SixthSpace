@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.base;
+package com.jyh.sixthspace.sdk.base;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;

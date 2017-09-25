@@ -3,6 +3,7 @@ package com.jyh.sixthspace.model;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 
+import com.jyh.sixthspace.live.DemoLiveFragment;
 import com.jyh.sixthspace.view.fragment.MoviesFragment;
 import com.jyh.sixthspace.view.fragment.LiveFragment;
 import com.jyh.sixthspace.view.fragment.RecommendFragment;
@@ -25,7 +26,7 @@ public class MainFragmentFactory {
                       map.put(1,new MoviesFragment());
                       break;
                   case 2:
-                      map.put(2,new LiveFragment());
+                      map.put(2,new DemoLiveFragment());
                       break;
                   case 3:
                       map.put(3,new TeleVisionFragment());

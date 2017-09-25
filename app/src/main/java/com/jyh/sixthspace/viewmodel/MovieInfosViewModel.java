@@ -5,11 +5,12 @@ import android.databinding.BaseObservable;
 import android.util.Log;
 import android.view.View;
 
-import com.jyh.sixthspace.base.Request2CallBack;
+
 import com.jyh.sixthspace.http.NetWork;
 import com.jyh.sixthspace.model.VideoHttpResponse;
 import com.jyh.sixthspace.model.VideoInfo;
 import com.jyh.sixthspace.model.VideoRes;
+import com.jyh.sixthspace.sdk.base.Request2CallBack;
 
 
 import java.util.List;

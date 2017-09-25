@@ -7,11 +7,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.jyh.sixthspace.R;
-import com.jyh.sixthspace.base.LazyFragment;
-import com.jyh.sixthspace.base.Request2CallBack;
-import com.jyh.sixthspace.base.RequestCallBack;
+
 import com.jyh.sixthspace.databinding.FragmentMovieBinding;
 import com.jyh.sixthspace.model.VideoInfo;
+import com.jyh.sixthspace.sdk.base.LazyFragment;
+import com.jyh.sixthspace.sdk.base.RequestCallBack;
 import com.jyh.sixthspace.view.adapter.MoviesRecyclerAdapter;
 import com.jyh.sixthspace.viewmodel.MoviesFragmentViewModel;
 
