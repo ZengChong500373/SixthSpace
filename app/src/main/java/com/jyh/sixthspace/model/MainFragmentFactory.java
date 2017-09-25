@@ -25,10 +25,10 @@ public class MainFragmentFactory {
                       map.put(1,new MoviesFragment());
                       break;
                   case 2:
-                      map.put(2,new TeleVisionFragment());
+                      map.put(2,new LiveFragment());
                       break;
                   case 3:
-                      map.put(3,new LiveFragment());
+                      map.put(3,new TeleVisionFragment());
                       break;
                   default:
                       break;

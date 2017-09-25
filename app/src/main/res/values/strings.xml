@@ -5,6 +5,6 @@
     <string name="title_recommend">推荐</string>
     <string name="title_movies">电影</string>
     <string name="title_tele">电视</string>
-
+    <string name="title_live">直播</string>
     <string name="splash_copyright">Copyright &#169; 2017 Rest All Rights Reserved\nPowered by Jyh</string>
 </resources>

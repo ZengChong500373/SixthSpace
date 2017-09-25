@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_movies:
                     binding.include.vpMain.setCurrentItem(1);
                     return true;
-
+                case R.id.navigation_live:
+                    binding.include.vpMain.setCurrentItem(2);
+                    return true;
             }
             return false;
         }
