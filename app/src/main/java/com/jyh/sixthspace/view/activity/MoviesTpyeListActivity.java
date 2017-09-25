@@ -1,16 +1,16 @@
 package com.jyh.sixthspace.view.activity;
 import android.databinding.DataBindingUtil;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.sdk.base.BaseActivity;
 import com.jyh.sixthspace.databinding.ActvityMoviesTypeListBinding;
-import com.jyh.sixthspace.model.VideoInfo;
-import com.jyh.sixthspace.model.VideoType;
+import com.jyh.sixthspace.sdk.model.VideoInfo;
+import com.jyh.sixthspace.sdk.model.VideoType;
 import com.jyh.sixthspace.view.adapter.MoviesTpyeListAdapter;
 import com.jyh.sixthspace.viewmodel.MoviesTpyeListViewModel;
+
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;

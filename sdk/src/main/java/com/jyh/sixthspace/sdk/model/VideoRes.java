@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.model;
+package com.jyh.sixthspace.sdk.model;
 
 import android.text.TextUtils;
 

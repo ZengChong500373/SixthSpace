@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.utlis.statusbar;
+package com.jyh.sixthspace.sdk.utlis.statusbar;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

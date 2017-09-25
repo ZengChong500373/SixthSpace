@@ -9,8 +9,9 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.jyh.sixthspace.SixthApplication;
-import com.jyh.sixthspace.model.VideoInfo;
-import com.jyh.sixthspace.utlis.ImgLoadUtils;
+
+import com.jyh.sixthspace.sdk.model.VideoInfo;
+import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
 import com.jyh.sixthspace.view.activity.RecommendMovieInfosActivity;
 
 

@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.utlis;
+package com.jyh.sixthspace.sdk.utlis;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -9,7 +9,8 @@ import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
 
-import com.jyh.sixthspace.SixthApplication;
+
+import com.jyh.sixthspace.sdk.SixthSpaceSdk;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -183,7 +184,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 				//获取文件输出路径
 //				String path = Environment.getExternalStorageDirectory()
 //						+ "/crashinfo/";
-				String path= SixthApplication.getContext().getExternalFilesDir(null).getAbsolutePath()+ "/crashinfo/";
+				String path= SixthSpaceSdk.getContext().getExternalFilesDir(null).getAbsolutePath()+ "/crashinfo/";
 				//创建文件夹和文件
 				File dir = new File(path);
 				if (!dir.exists()) {

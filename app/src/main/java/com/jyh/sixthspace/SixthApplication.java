@@ -2,10 +2,8 @@ package com.jyh.sixthspace;
 
 import android.app.Application;
 import android.content.Context;
+import com.jyh.sixthspace.sdk.SixthSpaceSdk;
 
-import com.github.moduth.blockcanary.BlockCanary;
-import com.jyh.sixthspace.utlis.AppBlockCanaryContext;
-import com.jyh.sixthspace.utlis.CrashHandler;
 
 
 /**
@@ -21,9 +19,7 @@ public class SixthApplication  extends Application{
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
-        CrashHandler.getInstance().init(mContext);
-       /** 检测ui卡顿*/
-        BlockCanary.install(this, new AppBlockCanaryContext()).start();
+        SixthSpaceSdk.init(mContext);
     }
     /**
      * 全局上下文

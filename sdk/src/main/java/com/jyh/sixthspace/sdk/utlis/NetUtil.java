@@ -1,15 +1,16 @@
-package com.jyh.sixthspace.utlis;
+package com.jyh.sixthspace.sdk.utlis;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.jyh.sixthspace.SixthApplication;
+
+import com.jyh.sixthspace.sdk.SixthSpaceSdk;
 
 
 public class NetUtil {
     public static boolean isNetworkConnected() {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) SixthApplication.getContext()
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) SixthSpaceSdk.getContext()
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
             if (mNetworkInfo != null) {
@@ -19,7 +20,7 @@ public class NetUtil {
     }
 
     public static boolean isWifiConnected() {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) SixthApplication.getContext()
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) SixthSpaceSdk.getContext()
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mWiFiNetworkInfo = mConnectivityManager
                     .getNetworkInfo(ConnectivityManager.TYPE_WIFI);
@@ -30,7 +31,7 @@ public class NetUtil {
     }
 
     public static boolean isMobileConnected() {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager)SixthApplication.getContext()
+            ConnectivityManager mConnectivityManager = (ConnectivityManager)SixthSpaceSdk.getContext()
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mMobileNetworkInfo = mConnectivityManager
                     .getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
@@ -41,7 +42,7 @@ public class NetUtil {
     }
 
     public static int getConnectedType() {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) SixthApplication.getContext()
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) SixthSpaceSdk.getContext()
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
             if (mNetworkInfo != null && mNetworkInfo.isAvailable()) {
@@ -55,7 +56,7 @@ public class NetUtil {
      * @return
      */
     public static boolean isNetworkAvailable() {
-        ConnectivityManager cm = (ConnectivityManager) SixthApplication.getContext()
+        ConnectivityManager cm = (ConnectivityManager) SixthSpaceSdk.getContext()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm != null) {
             //如果仅仅是用来判断网络连接

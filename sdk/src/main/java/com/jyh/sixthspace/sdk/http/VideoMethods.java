@@ -1,11 +1,13 @@
 
-package com.jyh.sixthspace.http;
+package com.jyh.sixthspace.sdk.http;
 
 
 
 
-import com.jyh.sixthspace.model.VideoHttpResponse;
-import com.jyh.sixthspace.model.VideoRes;
+
+
+import com.jyh.sixthspace.sdk.model.VideoHttpResponse;
+import com.jyh.sixthspace.sdk.model.VideoRes;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

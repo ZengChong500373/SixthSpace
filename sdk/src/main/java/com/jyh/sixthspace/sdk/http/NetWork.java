@@ -1,10 +1,13 @@
-package com.jyh.sixthspace.http;
+package com.jyh.sixthspace.sdk.http;
 
 
-import com.jyh.sixthspace.utlis.UIUtils;
+
+
+import com.jyh.sixthspace.sdk.utlis.UIUtils;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
+
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.CallAdapter;

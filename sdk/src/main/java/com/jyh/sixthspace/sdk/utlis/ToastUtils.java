@@ -1,7 +1,8 @@
-package com.jyh.sixthspace.utlis;
+package com.jyh.sixthspace.sdk.utlis;
 
 import android.widget.Toast;
-import com.jyh.sixthspace.SixthApplication;
+
+import com.jyh.sixthspace.sdk.SixthSpaceSdk;
 
 
 /**
@@ -19,6 +20,6 @@ public class ToastUtils {
     }
 
     public void show(String str) {
-        Toast.makeText(SixthApplication.getContext(), str, Toast.LENGTH_LONG).show();
+        Toast.makeText(SixthSpaceSdk.getContext(), str, Toast.LENGTH_LONG).show();
     }
 }

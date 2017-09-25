@@ -1,8 +1,11 @@
-package com.jyh.sixthspace.http;
+package com.jyh.sixthspace.sdk.http;
 
-import com.jyh.sixthspace.utlis.NetUtil;
+
+
+import com.jyh.sixthspace.sdk.utlis.NetUtil;
 
 import java.io.IOException;
+
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Request;

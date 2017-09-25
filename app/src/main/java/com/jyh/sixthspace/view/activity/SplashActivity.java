@@ -6,7 +6,6 @@ import android.os.Bundle;;
 import android.support.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
-import com.jyh.sixthspace.MainActivity;
 import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.sdk.base.BaseActivity;
 import com.jyh.sixthspace.databinding.ActivitySplashBinding;

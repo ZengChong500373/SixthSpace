@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.utlis;
+package com.jyh.sixthspace.sdk.utlis;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -7,12 +7,14 @@ import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
-import com.jyh.sixthspace.SixthApplication;
+
+
+import com.jyh.sixthspace.sdk.SixthSpaceSdk;
 
 
 public class UIUtils {
 	public static Context getContext() {
-		return SixthApplication.getContext();
+		return SixthSpaceSdk.getContext();
 	}
 
 	// 获取资源文件夹操作

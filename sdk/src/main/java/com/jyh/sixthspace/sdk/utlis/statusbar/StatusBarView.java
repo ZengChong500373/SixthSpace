@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.utlis.statusbar;
+package com.jyh.sixthspace.sdk.utlis.statusbar;
 
 import android.content.Context;
 import android.util.AttributeSet;

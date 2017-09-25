@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.model;
+package com.jyh.sixthspace.sdk.model;
 
 /**
  * Created by codeest on 16/8/28.

@@ -1,4 +1,4 @@
-package com.jyh.sixthspace;
+package com.jyh.sixthspace.view.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -7,8 +7,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.databinding.ActivityMainBinding;
-import com.jyh.sixthspace.utlis.StatusBarCompat;
+
+import com.jyh.sixthspace.sdk.utlis.StatusBarCompat;
 import com.jyh.sixthspace.view.adapter.MainPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {

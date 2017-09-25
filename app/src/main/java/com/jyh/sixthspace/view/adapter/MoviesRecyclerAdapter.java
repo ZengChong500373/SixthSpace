@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.databinding.FragmentMoviesRecyclerItemBinding;
-import com.jyh.sixthspace.model.VideoInfo;
+import com.jyh.sixthspace.sdk.model.VideoInfo;
 import com.jyh.sixthspace.viewmodel.MoviesRecyclerItemViewModel;
 import java.util.Collections;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.utlis;
+package com.jyh.sixthspace.sdk.utlis;
 
 /**
  * Created by Administrator on 2017/4/12.

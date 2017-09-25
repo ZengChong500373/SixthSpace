@@ -1,15 +1,11 @@
 package com.jyh.sixthspace.viewmodel;
 
-import android.util.Log;
-import android.util.SparseArray;
 
-import com.jyh.sixthspace.constant.ReCommendConstant;
-import com.jyh.sixthspace.http.NetWork;
-import com.jyh.sixthspace.http.VideoMethods;
-import com.jyh.sixthspace.model.VideoHttpResponse;
-import com.jyh.sixthspace.model.VideoInfo;
-import com.jyh.sixthspace.model.VideoRes;
-import com.jyh.sixthspace.model.VideoType;
+import com.jyh.sixthspace.sdk.http.NetWork;
+import com.jyh.sixthspace.sdk.model.VideoHttpResponse;
+import com.jyh.sixthspace.sdk.model.VideoInfo;
+import com.jyh.sixthspace.sdk.model.VideoRes;
+import com.jyh.sixthspace.sdk.model.VideoType;
 
 import java.util.List;
 import java.util.Observable;

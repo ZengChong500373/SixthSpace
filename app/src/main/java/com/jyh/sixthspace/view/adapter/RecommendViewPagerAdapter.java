@@ -1,16 +1,14 @@
 package com.jyh.sixthspace.view.adapter;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
 import android.support.v4.view.PagerAdapter;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.jyh.sixthspace.R;
-import com.jyh.sixthspace.model.VideoInfo;
-import com.jyh.sixthspace.utlis.ImgLoadUtils;
+import com.jyh.sixthspace.sdk.model.VideoInfo;
+import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
+
 
 import java.util.ArrayList;
 import java.util.List;

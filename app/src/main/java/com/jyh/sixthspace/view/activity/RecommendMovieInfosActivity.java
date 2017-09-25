@@ -9,10 +9,11 @@ import android.widget.ImageView;
 import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.sdk.base.BaseActivity;
 import com.jyh.sixthspace.databinding.ActivityMovieInfosBinding;
-import com.jyh.sixthspace.model.VideoInfo;
-import com.jyh.sixthspace.model.VideoRes;
 import com.jyh.sixthspace.sdk.base.Request2CallBack;
-import com.jyh.sixthspace.utlis.ImgLoadUtils;
+
+import com.jyh.sixthspace.sdk.model.VideoInfo;
+import com.jyh.sixthspace.sdk.model.VideoRes;
+import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
 import com.jyh.sixthspace.view.adapter.RecommendRecyclerAdapter;
 import com.jyh.sixthspace.viewmodel.MovieInfosViewModel;
 import java.util.List;

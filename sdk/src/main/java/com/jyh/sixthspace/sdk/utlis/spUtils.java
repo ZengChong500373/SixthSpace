@@ -1,7 +1,8 @@
-package com.jyh.sixthspace.utlis;
+package com.jyh.sixthspace.sdk.utlis;
 
 import android.content.SharedPreferences;
-import com.jyh.sixthspace.SixthApplication;
+
+import com.jyh.sixthspace.sdk.SixthSpaceSdk;
 
 
 /**SharedPreferences 的工具类*/
@@ -9,7 +10,7 @@ public class spUtils {
 	private static SharedPreferences sp;
 
 	private static void getInstance() {
-		sp = SixthApplication.getContext().getSharedPreferences("config", 0);
+		sp = SixthSpaceSdk.getContext().getSharedPreferences("config", 0);
 	}
 
 	public static void put(String key, Object value) {
