@@ -3,6 +3,7 @@ package com.jyh.sixthspace.sdk.http;
 
 
 
+import com.jyh.sixthspace.sdk.constant.LiveConStant;
 import com.jyh.sixthspace.sdk.utlis.UIUtils;
 
 import java.io.File;
@@ -35,6 +36,7 @@ public class NetWork {
                     mOkHttpClient = new OkHttpClient.Builder()
                             .cache(mCache)
                             .addInterceptor(mNetworkInterceptor)
+                            .addInterceptor(new LogInterceptor())
                             .addNetworkInterceptor(mNetworkInterceptor)
                             .retryOnConnectionFailure(true)
                             .connectTimeout(15, TimeUnit.SECONDS)
@@ -55,5 +57,16 @@ public class NetWork {
             videoMethods = retrofit.create(VideoMethods.class);
         }
         return videoMethods;
+    }
+
+    public static <T> T  LiveBuilder(Class<T> service)
+    {
+        Retrofit  retrofit=new Retrofit.Builder()
+                .client(mOkHttpClient)
+                .baseUrl(LiveConStant.baseUrl)
+                .addConverterFactory(gsonConverterFactory)
+                .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                .build();
+        return retrofit.create(service);
     }
 }
