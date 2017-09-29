@@ -30,4 +30,5 @@ dependencies {
     })
     implementation project(':live')
     implementation project(':sdk')
+    implementation project(':uilibrary')
 }

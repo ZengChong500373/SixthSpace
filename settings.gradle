@@ -1,1 +1,1 @@
-include ':app', ':live', ':sdk'
+include ':app', ':live', ':sdk', ':uilibrary'
