@@ -1,8 +1,9 @@
-package com.jyh.sixthspace.sdk.model;
+package com.jyh.sixthspace.sdk.bean.movie;
 
 import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
+import com.jyh.sixthspace.sdk.bean.movie.VideoType;
 
 import java.util.List;
 

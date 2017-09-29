@@ -6,8 +6,8 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.sdk.base.BaseActivity;
 import com.jyh.sixthspace.databinding.ActvityMoviesTypeListBinding;
-import com.jyh.sixthspace.sdk.model.VideoInfo;
-import com.jyh.sixthspace.sdk.model.VideoType;
+import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
+import com.jyh.sixthspace.sdk.bean.movie.VideoType;
 import com.jyh.sixthspace.view.adapter.MoviesTpyeListAdapter;
 import com.jyh.sixthspace.viewmodel.MoviesTpyeListViewModel;
 

@@ -6,8 +6,8 @@ package com.jyh.sixthspace.sdk.http;
 
 
 
-import com.jyh.sixthspace.sdk.model.VideoHttpResponse;
-import com.jyh.sixthspace.sdk.model.VideoRes;
+import com.jyh.sixthspace.sdk.bean.movie.VideoHttpResponse;
+import com.jyh.sixthspace.sdk.bean.movie.VideoRes;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

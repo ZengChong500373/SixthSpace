@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 
-import com.jyh.sixthspace.sdk.model.VideoInfo;
+import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
 import com.jyh.sixthspace.view.activity.MoviesTpyeListActivity;
 

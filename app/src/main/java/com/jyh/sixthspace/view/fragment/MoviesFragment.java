@@ -11,7 +11,7 @@ import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.databinding.FragmentMovieBinding;
 import com.jyh.sixthspace.sdk.base.LazyFragment;
 import com.jyh.sixthspace.sdk.base.RequestCallBack;
-import com.jyh.sixthspace.sdk.model.VideoInfo;
+import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.view.adapter.MoviesRecyclerAdapter;
 import com.jyh.sixthspace.viewmodel.MoviesFragmentViewModel;
 

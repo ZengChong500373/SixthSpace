@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.SixthApplication;
 import com.jyh.sixthspace.databinding.ActivityMoviesTypeListItemBinding;
-import com.jyh.sixthspace.sdk.model.VideoType;
+import com.jyh.sixthspace.sdk.bean.movie.VideoType;
 import com.jyh.sixthspace.viewmodel.MoviesTypeListItemViewModel;
 import java.util.ArrayList;
 import java.util.List;

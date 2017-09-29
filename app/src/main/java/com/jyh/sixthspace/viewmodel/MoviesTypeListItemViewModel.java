@@ -10,8 +10,8 @@ import android.widget.ImageView;
 
 import com.jyh.sixthspace.SixthApplication;
 
-import com.jyh.sixthspace.sdk.model.VideoInfo;
-import com.jyh.sixthspace.sdk.model.VideoType;
+import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
+import com.jyh.sixthspace.sdk.bean.movie.VideoType;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
 import com.jyh.sixthspace.view.activity.RecommendMovieInfosActivity;
 

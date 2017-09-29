@@ -2,10 +2,10 @@ package com.jyh.sixthspace.viewmodel;
 
 
 import com.jyh.sixthspace.sdk.http.NetWork;
-import com.jyh.sixthspace.sdk.model.VideoHttpResponse;
-import com.jyh.sixthspace.sdk.model.VideoInfo;
-import com.jyh.sixthspace.sdk.model.VideoRes;
-import com.jyh.sixthspace.sdk.model.VideoType;
+import com.jyh.sixthspace.sdk.bean.movie.VideoHttpResponse;
+import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
+import com.jyh.sixthspace.sdk.bean.movie.VideoRes;
+import com.jyh.sixthspace.sdk.bean.movie.VideoType;
 
 import java.util.List;
 import java.util.Observable;

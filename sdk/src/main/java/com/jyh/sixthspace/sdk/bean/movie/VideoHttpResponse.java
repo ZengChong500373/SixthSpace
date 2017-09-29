@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.sdk.model;
+package com.jyh.sixthspace.sdk.bean.movie;
 
 /**
  * Created by codeest on 16/8/28.

@@ -11,8 +11,8 @@ import com.jyh.sixthspace.sdk.base.BaseActivity;
 import com.jyh.sixthspace.databinding.ActivityMovieInfosBinding;
 import com.jyh.sixthspace.sdk.base.Request2CallBack;
 
-import com.jyh.sixthspace.sdk.model.VideoInfo;
-import com.jyh.sixthspace.sdk.model.VideoRes;
+import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
+import com.jyh.sixthspace.sdk.bean.movie.VideoRes;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
 import com.jyh.sixthspace.view.adapter.RecommendRecyclerAdapter;
 import com.jyh.sixthspace.viewmodel.MovieInfosViewModel;

@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.sdk.model;
+package com.jyh.sixthspace.sdk.bean.movie;
 
 import com.google.gson.annotations.SerializedName;
 
