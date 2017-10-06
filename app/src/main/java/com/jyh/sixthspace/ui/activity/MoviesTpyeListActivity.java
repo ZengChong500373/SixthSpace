@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.view.activity;
+package com.jyh.sixthspace.ui.activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,7 +8,7 @@ import com.jyh.sixthspace.sdk.base.BaseActivity;
 import com.jyh.sixthspace.databinding.ActvityMoviesTypeListBinding;
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.sdk.bean.movie.VideoType;
-import com.jyh.sixthspace.view.adapter.MoviesTpyeListAdapter;
+import com.jyh.sixthspace.ui.adapter.MoviesTpyeListAdapter;
 import com.jyh.sixthspace.viewmodel.MoviesTpyeListViewModel;
 
 import java.util.List;

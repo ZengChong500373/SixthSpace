@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.jyh.sixthspace.live.ui.fragment.LiveCommonFragment;
 import com.jyh.sixthspace.live.ui.fragment.LiveReCommedFrament;
+import com.jyh.sixthspace.sdk.bean.live.HomeCateList;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  */
 
 public class LiveMainPagerAdapter extends FragmentStatePagerAdapter {
-    List<String> list;
+    List<HomeCateList> list;
 
     public LiveMainPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -37,10 +38,10 @@ public class LiveMainPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return list.get(position);
+        return list.get(position).getTitle();
     }
 
-    public void setData(List<String> list) {
+    public void setData(List<HomeCateList> list) {
         this.list = list;
         notifyDataSetChanged();
 

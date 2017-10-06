@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.view.activity;
+package com.jyh.sixthspace.ui.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.databinding.ActivityMainBinding;
 
 import com.jyh.sixthspace.sdk.utlis.StatusBarCompat;
-import com.jyh.sixthspace.view.adapter.MainPagerAdapter;
+import com.jyh.sixthspace.ui.adapter.MainPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;

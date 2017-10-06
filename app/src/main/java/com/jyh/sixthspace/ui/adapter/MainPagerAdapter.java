@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.view.adapter;
+package com.jyh.sixthspace.ui.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

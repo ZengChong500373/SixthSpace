@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.view.activity;
+package com.jyh.sixthspace.ui.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import com.jyh.sixthspace.sdk.base.Request2CallBack;
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.sdk.bean.movie.VideoRes;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
-import com.jyh.sixthspace.view.adapter.RecommendRecyclerAdapter;
+import com.jyh.sixthspace.ui.adapter.RecommendRecyclerAdapter;
 import com.jyh.sixthspace.viewmodel.MovieInfosViewModel;
 import java.util.List;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;

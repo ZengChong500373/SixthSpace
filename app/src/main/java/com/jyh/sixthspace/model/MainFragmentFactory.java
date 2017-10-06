@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 
 import com.jyh.sixthspace.live.ui.fragment.LiveMainFragment;
-import com.jyh.sixthspace.view.fragment.MoviesFragment;
-import com.jyh.sixthspace.view.fragment.RecommendFragment;
-import com.jyh.sixthspace.view.fragment.TeleVisionFragment;
+import com.jyh.sixthspace.ui.fragment.MoviesFragment;
+import com.jyh.sixthspace.ui.fragment.RecommendFragment;
+import com.jyh.sixthspace.ui.fragment.TeleVisionFragment;
 
 /**
  * Created by Administrator on 2017/4/13.

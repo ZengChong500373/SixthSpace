@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.view.fragment;
+package com.jyh.sixthspace.ui.fragment;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import com.jyh.sixthspace.databinding.FragmentMovieBinding;
 import com.jyh.sixthspace.sdk.base.LazyFragment;
 import com.jyh.sixthspace.sdk.base.RequestCallBack;
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
-import com.jyh.sixthspace.view.adapter.MoviesRecyclerAdapter;
+import com.jyh.sixthspace.ui.adapter.MoviesRecyclerAdapter;
 import com.jyh.sixthspace.viewmodel.MoviesFragmentViewModel;
 
 import java.util.List;

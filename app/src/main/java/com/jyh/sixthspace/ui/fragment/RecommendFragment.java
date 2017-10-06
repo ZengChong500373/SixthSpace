@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.view.fragment;
+package com.jyh.sixthspace.ui.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.SparseArray;
@@ -7,8 +7,8 @@ import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.sdk.base.LazyFragment;
 import com.jyh.sixthspace.databinding.FragmentRecommendBinding;
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
-import com.jyh.sixthspace.view.adapter.RecommendRecyclerAdapter;
-import com.jyh.sixthspace.view.adapter.RecommendViewPagerAdapter;
+import com.jyh.sixthspace.ui.adapter.RecommendRecyclerAdapter;
+import com.jyh.sixthspace.ui.adapter.RecommendViewPagerAdapter;
 import com.jyh.sixthspace.viewmodel.RecommendViewModel;
 
 import java.util.List;
@@ -37,6 +37,7 @@ public class RecommendFragment extends LazyFragment<FragmentRecommendBinding> im
         jyhBinding.recyclerRecommend.setAdapter(recyclerAdapter);
         viewPagerAdapter=new RecommendViewPagerAdapter(getContext());
         jyhBinding.vpRecommend.setAdapter(viewPagerAdapter);
+
 
     }
 

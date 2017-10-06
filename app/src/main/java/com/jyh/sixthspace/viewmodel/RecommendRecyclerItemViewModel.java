@@ -12,7 +12,7 @@ import com.jyh.sixthspace.SixthApplication;
 
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
-import com.jyh.sixthspace.view.activity.RecommendMovieInfosActivity;
+import com.jyh.sixthspace.ui.activity.RecommendMovieInfosActivity;
 
 
 /**

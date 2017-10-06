@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
-import com.jyh.sixthspace.view.activity.MoviesTpyeListActivity;
+import com.jyh.sixthspace.ui.activity.MoviesTpyeListActivity;
 
 /**
  * Created by Administrator on 2017/5/10.

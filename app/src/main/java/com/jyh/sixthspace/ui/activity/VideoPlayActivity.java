@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.view.activity;
+package com.jyh.sixthspace.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

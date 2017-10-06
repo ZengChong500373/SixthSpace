@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.view.fragment;
+package com.jyh.sixthspace.ui.fragment;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;

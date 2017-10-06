@@ -1,24 +1,66 @@
 package com.jyh.sixthspace.live.ui.fragment;
 
-import com.jyh.sixthspace.live.R;
+import android.support.v7.widget.LinearLayoutManager;
 
+import com.jyh.sixthspace.live.R;
 import com.jyh.sixthspace.live.databinding.FragmentLiveBinding;
+import com.jyh.sixthspace.live.ui.adapter.LiveReCommendMainRecycleAdapter;
+import com.jyh.sixthspace.live.view.LiveReCommedView;
+import com.jyh.sixthspace.live.viewmodel.LiveReCommedViewModel;
 import com.jyh.sixthspace.sdk.base.LazyFragment;
+import com.jyh.sixthspace.sdk.bean.live.HomeCarousel;
+import com.jyh.sixthspace.sdk.bean.live.HomeFaceScoreColumn;
+import com.jyh.sixthspace.sdk.bean.live.HomeHotColumn;
+import com.jyh.sixthspace.sdk.bean.live.HomeRecommendHotCate;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/9/30.
  */
 
-public class LiveReCommedFrament extends LazyFragment<FragmentLiveBinding> {
-
+public class LiveReCommedFrament extends LazyFragment<FragmentLiveBinding> implements LiveReCommedView {
+    LiveReCommedViewModel model;
+    LiveReCommendMainRecycleAdapter adapter;
+    private LinearLayoutManager layoutManager;
     @Override
     public int setFragmentView() {
         return R.layout.fragment_live;
     }
 
     @Override
-    public void onFirstUserVisible() {
+    public void initViews() {
+        adapter = new LiveReCommendMainRecycleAdapter();
+        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        jyhBinding.recyclerRecommend.setLayoutManager(layoutManager);
+        jyhBinding.recyclerRecommend.setHasFixedSize(true);
+        jyhBinding.recyclerRecommend.setAdapter(adapter);
+    }
 
-      jyhBinding.tvDemo.setText("LiveReCommedFrament");
+    @Override
+    public void onFirstUserVisible() {
+        model = new LiveReCommedViewModel(this);
+    }
+
+
+    @Override
+    public void onLoadCarouselSuccess(List<HomeCarousel> list) {
+        adapter.setCarouselData(list);
+    }
+
+    @Override
+    public void onLoadHotSuccess(List<HomeHotColumn> list) {
+
+    }
+
+    @Override
+    public void onLoadBeautysSuccess(List<HomeFaceScoreColumn> list) {
+
+    }
+
+    @Override
+    public void onLoadOtherSuccess(List<HomeRecommendHotCate> list) {
+
     }
 }

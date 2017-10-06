@@ -26,6 +26,7 @@ public class LiveCommonFragment extends LazyFragment<FragmentLiveBinding> {
     @Override
     public void onFirstUserVisible() {
         int   current_position = getArguments().getInt("position");
-        jyhBinding.tvDemo.setText("this is the"+current_position+" position");
+
+
     }
 }

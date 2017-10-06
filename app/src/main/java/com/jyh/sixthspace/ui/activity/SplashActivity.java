@@ -1,4 +1,4 @@
-package com.jyh.sixthspace.view.activity;
+package com.jyh.sixthspace.ui.activity;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
