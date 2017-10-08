@@ -153,7 +153,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 	 * @param ex
 	 * @return 返回文件名称,便于将文件传送到服务器
 	 */
-	private String saveCrashInfo2File(Throwable ex) {
+	public String saveCrashInfo2File(Throwable ex) {
 		//存储相关的字符串信息
 		StringBuffer sb = new StringBuffer();
 		//将成员变量 Map<String, String> mInfos  中的数据 存储到 StringBuffer sb 中

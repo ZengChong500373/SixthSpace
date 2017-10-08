@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 
 import com.jyh.sixthspace.live.R;
 import com.jyh.sixthspace.live.databinding.FragmentLiveCarouseBinding;
+import com.jyh.sixthspace.live.databinding.FragmentLiveTypeBinding;
 import com.jyh.sixthspace.live.ui.holder.RecommendCarouselHolder;
-import com.jyh.sixthspace.sdk.base.RecyclerViewBaseHolder;
+import com.jyh.sixthspace.live.ui.holder.RecommendCommonTypeHolder;
 import com.jyh.sixthspace.sdk.bean.live.HomeCarousel;
 import com.jyh.sixthspace.sdk.bean.live.HomeFaceScoreColumn;
 import com.jyh.sixthspace.sdk.bean.live.HomeHotColumn;
@@ -23,26 +24,41 @@ import java.util.List;
  */
 
 public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
-    public final   int VIEWPAGER=0;
-    public int Hot=1;
-    public int Beautys=2;
-    public int Ohter=3;
-    HomeRecommendHotCate carousel=new HomeRecommendHotCate();
+    public final int VIEWPAGER = 0;
+    public final int HOT = 1;
+    public final int BEAUTYS = 2;
+    public final int OTHER = 3;
+    HomeRecommendHotCate carousel = new HomeRecommendHotCate();
+    HomeRecommendHotCate hot = new HomeRecommendHotCate();
+    HomeRecommendHotCate beautys = new HomeRecommendHotCate();
+    HomeRecommendHotCate other = new HomeRecommendHotCate();
     List<HomeRecommendHotCate> list = new ArrayList<HomeRecommendHotCate>();
     List<HomeCarousel> homeCarouselList;
+    List<HomeHotColumn> homeHotList;
     LiveMainCarouselViewPagerAdapter carouselViewPagerAdapter;
+    LiveReHotTypeAdapter hotTypeAdapter;
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = null;
         RecyclerView.ViewHolder holder = null;
         switch (viewType) {
             case VIEWPAGER:
-                FragmentLiveCarouseBinding binding= DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_carouse,parent,false);
-                RecommendCarouselHolder    carouselHolder=new RecommendCarouselHolder(binding.getRoot());
-               carouselHolder.setBind(binding);
-                holder=carouselHolder;
+                FragmentLiveCarouseBinding pagerBind = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_carouse, parent, false);
+                RecommendCarouselHolder carouselHolder = new RecommendCarouselHolder(pagerBind.getRoot());
+                carouselHolder.setBind(pagerBind);
+                holder = carouselHolder;
                 break;
-
+            case HOT:
+                FragmentLiveTypeBinding hotBind = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_type, parent, false);
+                RecommendCommonTypeHolder commonTypeHolder=new RecommendCommonTypeHolder(hotBind.getRoot());
+                commonTypeHolder.setBind(hotBind);
+                holder = commonTypeHolder;
+                break;
+            case BEAUTYS:
+                break;
+            case OTHER:
+                break;
         }
         return holder;
     }
@@ -50,14 +66,28 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int viewType = getItemViewType(position);
-        switch (viewType){
+        switch (viewType) {
             case VIEWPAGER:
-                RecommendCarouselHolder carouselHolder= (RecommendCarouselHolder) holder;
-                if (carouselHolder.getBind().liveRecommendCarouse.getAdapter()==null){
-                     carouselViewPagerAdapter=new LiveMainCarouselViewPagerAdapter();
+                RecommendCarouselHolder carouselHolder = (RecommendCarouselHolder) holder;
+                if (carouselHolder.getBind().liveRecommendCarouse.getAdapter() == null) {
+                    carouselViewPagerAdapter = new LiveMainCarouselViewPagerAdapter();
                     carouselHolder.getBind().liveRecommendCarouse.setAdapter(carouselViewPagerAdapter);
                 }
                 carouselViewPagerAdapter.setData(homeCarouselList);
+                break;
+            case HOT:
+                RecommendCommonTypeHolder commonTypeHolder = (RecommendCommonTypeHolder) holder;
+                if (commonTypeHolder.getBind().recyclerTypeList.getAdapter()==null){
+                    hotTypeAdapter=new LiveReHotTypeAdapter();
+                    commonTypeHolder.SetAdapter(hotTypeAdapter);
+                }
+                hotTypeAdapter.setData(homeHotList);
+                commonTypeHolder.getBind().imgTypeIcon.setImageResource(R.mipmap.reco_game_txt_icon);
+                commonTypeHolder.getBind().tvTypeName.setText("最热");
+                break;
+            case BEAUTYS:
+                break;
+            case OTHER:
                 break;
         }
     }
@@ -75,29 +105,50 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
 
     public void setCarouselData(List<HomeCarousel> list) {
         carousel.setType(VIEWPAGER);
-        if (list!=null){
-            this.list.add(carousel);
-        }else {
+        if (list != null) {
+            this.list.add(0, carousel);
+        } else {
             this.list.remove(carousel);
         }
-        homeCarouselList=list;
-       notifyDataSetChanged();
+        homeCarouselList = list;
+     notifyDataSetChanged();
 
 
     }
 
 
-    public void onLoadHotSuccess(List<HomeHotColumn> list) {
-
+    public void setHotData(List<HomeHotColumn> list) {
+        hot.setType(HOT);
+        if (list != null) {
+            this.list.add(hot);
+        } else {
+            this.list.remove(hot);
+        }
+        homeHotList=list;
+        notifyDataSetChanged();
     }
 
 
-    public void onLoadBeautysSuccess(List<HomeFaceScoreColumn> list) {
+    public void setBeautysData(List<HomeFaceScoreColumn> list) {
+//        beautys.setType(BEAUTYS);
+//        if (list != null) {
+//            this.list.add(2,beautys);
+//        } else {
+//            this.list.remove(beautys);
+//        }
 
+//        notifyDataSetChanged();
     }
 
 
-    public void onLoadOtherSuccess(List<HomeRecommendHotCate> list) {
+    public void setOtherData(List<HomeRecommendHotCate> list) {
+//        carousel.setType(VIEWPAGER);
+//        if (list != null) {
+//           this.list.addAll(list);
+//        } else {
+//           this.list.removeAll(list);
+//        }
 
+//        notifyDataSetChanged();
     }
 }

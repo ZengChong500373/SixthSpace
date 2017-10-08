@@ -121,18 +121,13 @@ public class UIUtils {
 	/**
 	 * 设置新闻图片item的宽高
 	 * */
-	public  static  int [] getNewsPicSize(){
+	public  static  int [] getPicSize(int A,int B){
 		int [] size=new int[2];
-		size[0]=getWindowWidth()/3;
+		size[0]=getWindowWidth()/B*A;
 		size[1]=size[0]/5*3;
 		return  size;
 	};
-	public  static  int [] getNewsPicBrowSize(){
-		int [] size=new int[2];
-		size[0]=getWindowWidth();
-		size[1]=size[0]/10*7;
-		return  size;
-	};
+
 
 
 }

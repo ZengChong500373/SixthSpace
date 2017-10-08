@@ -46,7 +46,7 @@ public class RecommendViewPagerAdapter extends PagerAdapter {
     @Override
     public View instantiateItem(ViewGroup container, int position) {
         ImageView imageView=new ImageView(mContext);
-        ImgLoadUtils.loadImgByUrl(imageView, listInfo.get(position).pic);
+        ImgLoadUtils.loadImgByUrlcenterCrop(imageView, listInfo.get(position).pic);
         imgs[position]=imageView;
         container.addView(imageView);
         return imageView;
