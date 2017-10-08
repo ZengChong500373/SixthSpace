@@ -32,6 +32,8 @@
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.MoviesTpyeListActivity" />
         <activity android:name=".ui.activity.MovieDetailsActivity"/>
+        <activity android:name=".live.ui.activity.LiveActivity"
+            android:screenOrientation="landscape"/>
 
 
     </application>

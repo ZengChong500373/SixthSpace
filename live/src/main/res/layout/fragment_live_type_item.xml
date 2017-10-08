@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.jyh.sixthspace.live.viewmodel.LiveReHotViewModel" />
@@ -11,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{model.go2Activity}"
         android:orientation="vertical">
 
 
@@ -28,7 +30,7 @@
                 android:layout_height="@dimen/wh100.0dimens100.0dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="@dimen/wh10.0dimens10.0dp"
-                android:onClick="@{model.go2Activity}" />
+                tools:imageUrl="@{model.imgUrl}" />
 
             <ImageView
                 android:layout_width="@dimen/wh60.0dimens60.0dp"
@@ -48,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:text="9999"
+                    android:text="@{model.onLinNum}"
                     android:textColor="#ffffff"
                     android:textSize="10sp" />
 
@@ -79,8 +81,8 @@
                 android:layout_marginBottom="@dimen/wh5.0dimens5.0dp"
                 android:layout_toRightOf="@id/img_nickname"
                 android:ellipsize="end"
+                android:text="@{model.nickName}"
                 android:textColor="#fff"
-
                 android:textSize="10sp"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -95,6 +97,7 @@
             android:shadowRadius="0.1"
             android:singleLine="true"
             android:textColor="#373737"
+            android:text="@{model.roomName}"
             android:textSize="12sp"
             android:textStyle="bold" />
     </LinearLayout>

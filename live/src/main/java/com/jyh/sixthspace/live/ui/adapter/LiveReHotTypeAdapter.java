@@ -2,19 +2,15 @@ package com.jyh.sixthspace.live.ui.adapter;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView;;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.jyh.sixthspace.live.R;
-
-import com.jyh.sixthspace.live.databinding.FragmentLiveTypeItemsBinding;
+import com.jyh.sixthspace.live.databinding.FragmentLiveTypeItemBinding;
 import com.jyh.sixthspace.live.viewmodel.LiveReHotViewModel;
 import com.jyh.sixthspace.sdk.bean.live.HomeHotColumn;
-import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,10 +21,10 @@ import java.util.List;
 
 public class LiveReHotTypeAdapter extends RecyclerView.Adapter<LiveReHotTypeAdapter.LiveReHotViewHolder> {
     List<HomeHotColumn> list = new ArrayList<>();
-
+    FragmentLiveTypeItemBinding itemBinding;
     @Override
     public LiveReHotViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        FragmentLiveTypeItemsBinding itemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_type_items, parent, false);
+        itemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_type_item, parent, false);
         LiveReHotViewHolder hotViewHolder = new LiveReHotViewHolder(itemBinding.getRoot());
         hotViewHolder.setBind(itemBinding);
         return hotViewHolder;
@@ -46,28 +42,21 @@ public class LiveReHotTypeAdapter extends RecyclerView.Adapter<LiveReHotTypeAdap
     }
 
     public class LiveReHotViewHolder extends RecyclerView.ViewHolder {
-        private FragmentLiveTypeItemsBinding bind;
-        private Context mContext;
-
+        private FragmentLiveTypeItemBinding bind;
         public LiveReHotViewHolder(View itemView) {
             super(itemView);
         }
 
-        public void setBind(FragmentLiveTypeItemsBinding binding) {
+        public void setBind(FragmentLiveTypeItemBinding binding) {
             this.bind = binding;
-            this.mContext = itemView.getContext();
+
         }
 
         public void setData(HomeHotColumn info) {
-//            if (bind.getModel() == null) {
-//                bind.setModel(new LiveReHotViewModel(info, mContext));
-//            } else {
-//                bind.getModel().setData(info);
-//            }
-            ImgLoadUtils.loadImgByUrlcenterCrop( bind.img, info.getRoom_src());
-            bind.tvRoomName.setText(info.getNickname());
-            bind.tvNickname.setText(info.getNickname());
-            bind.tvOnlineNum.setText(info.getOnline()+"");
+            if (bind.getModel() == null) {
+                bind.setModel(new LiveReHotViewModel());
+            }
+            bind.getModel().setData(info);
         }
     }
 
