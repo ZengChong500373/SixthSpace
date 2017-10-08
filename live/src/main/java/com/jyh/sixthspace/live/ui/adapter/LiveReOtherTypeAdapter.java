@@ -6,13 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.jyh.sixthspace.live.R;
-
 import com.jyh.sixthspace.live.databinding.FragmentLiveTypeItemsBinding;
-import com.jyh.sixthspace.live.viewmodel.LiveReHotViewModel;
 import com.jyh.sixthspace.sdk.bean.live.HomeHotColumn;
+import com.jyh.sixthspace.sdk.bean.live.HomeRecommendHotCate;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
 
 import java.util.ArrayList;
@@ -23,19 +21,19 @@ import java.util.List;
  * Created by Administrator on 2017/10/9.
  */
 
-public class LiveReHotTypeAdapter extends RecyclerView.Adapter<LiveReHotTypeAdapter.LiveReHotViewHolder> {
-    List<HomeHotColumn> list = new ArrayList<>();
+public class LiveReOtherTypeAdapter extends RecyclerView.Adapter<LiveReOtherTypeAdapter.LiveReOtherViewHolder> {
+    List<HomeRecommendHotCate.RoomListEntity> list = new ArrayList<>();
 
     @Override
-    public LiveReHotViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public LiveReOtherViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         FragmentLiveTypeItemsBinding itemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_type_items, parent, false);
-        LiveReHotViewHolder hotViewHolder = new LiveReHotViewHolder(itemBinding.getRoot());
+        LiveReOtherViewHolder hotViewHolder = new LiveReOtherViewHolder(itemBinding.getRoot());
         hotViewHolder.setBind(itemBinding);
         return hotViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(LiveReHotViewHolder holder, int position) {
+    public void onBindViewHolder(LiveReOtherViewHolder holder, int position) {
         holder.setData(list.get(position));
     }
 
@@ -45,11 +43,11 @@ public class LiveReHotTypeAdapter extends RecyclerView.Adapter<LiveReHotTypeAdap
         return list.size();
     }
 
-    public class LiveReHotViewHolder extends RecyclerView.ViewHolder {
+    public class LiveReOtherViewHolder extends RecyclerView.ViewHolder {
         private FragmentLiveTypeItemsBinding bind;
         private Context mContext;
 
-        public LiveReHotViewHolder(View itemView) {
+        public LiveReOtherViewHolder(View itemView) {
             super(itemView);
         }
 
@@ -58,7 +56,7 @@ public class LiveReHotTypeAdapter extends RecyclerView.Adapter<LiveReHotTypeAdap
             this.mContext = itemView.getContext();
         }
 
-        public void setData(HomeHotColumn info) {
+        public void setData(HomeRecommendHotCate.RoomListEntity info) {
 //            if (bind.getModel() == null) {
 //                bind.setModel(new LiveReHotViewModel(info, mContext));
 //            } else {
@@ -71,7 +69,7 @@ public class LiveReHotTypeAdapter extends RecyclerView.Adapter<LiveReHotTypeAdap
         }
     }
 
-    public void setData(List<HomeHotColumn> list) {
+    public void setData( List<HomeRecommendHotCate.RoomListEntity> list) {
         this.list.clear();
         this.list.addAll(list);
         notifyDataSetChanged();

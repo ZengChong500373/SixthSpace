@@ -37,6 +37,7 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
     List<HomeHotColumn> homeHotList;
     LiveMainCarouselViewPagerAdapter carouselViewPagerAdapter;
     LiveReHotTypeAdapter hotTypeAdapter;
+    LiveReOtherTypeAdapter otherTypeAdapter;
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -51,13 +52,17 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
                 break;
             case HOT:
                 FragmentLiveTypeBinding hotBind = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_type, parent, false);
-                RecommendCommonTypeHolder commonTypeHolder=new RecommendCommonTypeHolder(hotBind.getRoot());
+                RecommendCommonTypeHolder commonTypeHolder = new RecommendCommonTypeHolder(hotBind.getRoot());
                 commonTypeHolder.setBind(hotBind);
                 holder = commonTypeHolder;
                 break;
             case BEAUTYS:
                 break;
             case OTHER:
+                FragmentLiveTypeBinding otherBind = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_type, parent, false);
+                RecommendCommonTypeHolder otherTypeHolder = new RecommendCommonTypeHolder(otherBind.getRoot());
+                otherTypeHolder.setBind(otherBind);
+                holder = otherTypeHolder;
                 break;
         }
         return holder;
@@ -77,10 +82,10 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
                 break;
             case HOT:
                 RecommendCommonTypeHolder commonTypeHolder = (RecommendCommonTypeHolder) holder;
-                if (commonTypeHolder.getBind().recyclerTypeList.getAdapter()==null){
-                    hotTypeAdapter=new LiveReHotTypeAdapter();
+//                if (commonTypeHolder.getBind().recyclerTypeList.getAdapter() == null) {
+                    hotTypeAdapter = new LiveReHotTypeAdapter();
                     commonTypeHolder.SetAdapter(hotTypeAdapter);
-                }
+//                }
                 hotTypeAdapter.setData(homeHotList);
                 commonTypeHolder.getBind().imgTypeIcon.setImageResource(R.mipmap.reco_game_txt_icon);
                 commonTypeHolder.getBind().tvTypeName.setText("最热");
@@ -88,6 +93,13 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
             case BEAUTYS:
                 break;
             case OTHER:
+                RecommendCommonTypeHolder otherTypeHolder = (RecommendCommonTypeHolder) holder;
+                otherTypeAdapter=new LiveReOtherTypeAdapter();
+                otherTypeHolder.SetAdapter(otherTypeAdapter);
+                otherTypeAdapter.setData(list.get(position).getRoom_list());
+                otherTypeHolder.getBind().imgTypeIcon.setImageResource(R.mipmap.icon_column);
+                otherTypeHolder.getBind().tvTypeName.setText(list.get(position).getTag_name());
+
                 break;
         }
     }
@@ -111,9 +123,7 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
             this.list.remove(carousel);
         }
         homeCarouselList = list;
-     notifyDataSetChanged();
-
-
+        notifyDataSetChanged();
     }
 
 
@@ -124,7 +134,7 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
         } else {
             this.list.remove(hot);
         }
-        homeHotList=list;
+        homeHotList = list;
         notifyDataSetChanged();
     }
 
@@ -142,13 +152,11 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
 
 
     public void setOtherData(List<HomeRecommendHotCate> list) {
-//        carousel.setType(VIEWPAGER);
-//        if (list != null) {
-//           this.list.addAll(list);
-//        } else {
-//           this.list.removeAll(list);
-//        }
-
-//        notifyDataSetChanged();
+        if (list != null) {
+            this.list.addAll(list);
+        } else {
+            this.list.removeAll(list);
+        }
+        notifyDataSetChanged();
     }
 }

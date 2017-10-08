@@ -31,15 +31,16 @@ public class LiveMainPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        if (list == null)
-            return 0;
-        return list.size();
+//        if (list == null)
+//            return 0;
+//        return list.size();
+        return 1;
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return list.get(position).getTitle();
-    }
+//    @Override
+//    public CharSequence getPageTitle(int position) {
+//        return list.get(position).getTitle();
+//    }
 
     public void setData(List<HomeCateList> list) {
         this.list = list;

@@ -31,7 +31,7 @@ public class LiveReCommedViewModel {
         initCarousel();
         initHot();
 //        initBeautys();
-//        initOther();
+        initOther();
 
     }
 

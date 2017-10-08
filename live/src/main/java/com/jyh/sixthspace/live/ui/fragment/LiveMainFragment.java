@@ -13,7 +13,6 @@ import com.jyh.sixthspace.live.viewmodel.LiveMainViewModel;
 import com.jyh.sixthspace.sdk.base.LazyFragment;
 import com.jyh.sixthspace.sdk.bean.live.HomeCateList;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
