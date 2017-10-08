@@ -23,6 +23,7 @@ public class LiveReCommedFrament extends LazyFragment<FragmentLiveBinding> imple
     LiveReCommedViewModel model;
     LiveReCommendMainRecycleAdapter adapter;
     private LinearLayoutManager layoutManager;
+
     @Override
     public int setFragmentView() {
         return R.layout.fragment_live;
@@ -51,16 +52,16 @@ public class LiveReCommedFrament extends LazyFragment<FragmentLiveBinding> imple
 
     @Override
     public void onLoadHotSuccess(List<HomeHotColumn> list) {
-
+        adapter.setHotData(list);
     }
 
     @Override
     public void onLoadBeautysSuccess(List<HomeFaceScoreColumn> list) {
-
+        adapter.setBeautysData(list);
     }
 
     @Override
     public void onLoadOtherSuccess(List<HomeRecommendHotCate> list) {
-
+        adapter.setOtherData(list);
     }
 }

@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.jyh.sixthspace.sdk.bean.live.HomeCarousel;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
+import com.jyh.sixthspace.sdk.utlis.UIUtils;
 
 import java.util.List;
 
@@ -19,7 +20,6 @@ import java.util.List;
 public class LiveMainCarouselViewPagerAdapter extends PagerAdapter {
     List<HomeCarousel> list;
     ImageView[] imgs;
-
     public LiveMainCarouselViewPagerAdapter() {
         imgs=new ImageView [0];
     }
@@ -42,7 +42,9 @@ public class LiveMainCarouselViewPagerAdapter extends PagerAdapter {
     @Override
     public View instantiateItem(ViewGroup container, int position) {
         ImageView imageView=new ImageView(container.getContext());
-        ImgLoadUtils.loadImgByUrl(imageView, list.get(position).getTv_pic_url());
+
+
+        ImgLoadUtils.loadImgByUrlcenterCrop(imageView, list.get(position).getTv_pic_url());
         imgs[position]=imageView;
         container.addView(imageView);
         return imageView;

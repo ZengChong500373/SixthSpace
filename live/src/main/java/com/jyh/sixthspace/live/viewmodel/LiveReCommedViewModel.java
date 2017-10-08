@@ -10,6 +10,7 @@ import com.jyh.sixthspace.sdk.bean.live.HomeRecommendHotCate;
 import com.jyh.sixthspace.sdk.bean.live.HttpResponse;
 import com.jyh.sixthspace.sdk.http.LiveHomeMethods;
 import com.jyh.sixthspace.sdk.http.NetWork;
+import com.jyh.sixthspace.sdk.utlis.CrashHandler;
 import com.jyh.sixthspace.sdk.utlis.ToastUtils;
 
 import java.util.List;
@@ -29,8 +30,8 @@ public class LiveReCommedViewModel {
         this.view = view;
         initCarousel();
         initHot();
-        initBeautys();
-        initOther();
+//        initBeautys();
+//        initOther();
 
     }
 
@@ -40,12 +41,11 @@ public class LiveReCommedViewModel {
                 subscribe(new Consumer<HttpResponse<List<HomeCarousel>>>() {
                     @Override
                     public void accept(HttpResponse<List<HomeCarousel>> listHttpResponse) throws Exception {
-//tv_pic_url 图片
-                       if (listHttpResponse==null){
-                         view.onLoadCarouselSuccess(null);
-                       }else {
-                           view.onLoadCarouselSuccess(listHttpResponse.getData());
-                       }
+                        if (listHttpResponse == null) {
+                            view.onLoadCarouselSuccess(null);
+                        } else {
+                            view.onLoadCarouselSuccess(listHttpResponse.getData());
+                        }
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -61,13 +61,17 @@ public class LiveReCommedViewModel {
                 subscribe(new Consumer<HttpResponse<List<HomeHotColumn>>>() {
                     @Override
                     public void accept(HttpResponse<List<HomeHotColumn>> listHttpResponse) throws Exception {
-
-                        ToastUtils.getInstance().show("getHot ok");
+                        if (listHttpResponse == null) {
+                            view.onLoadHotSuccess(null);
+                        } else {
+                            view.onLoadHotSuccess(listHttpResponse.getData());
+                        }
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                         ToastUtils.getInstance().show("getHot fail");
+                        CrashHandler.getInstance().saveCrashInfo2File(throwable);
                     }
                 });
     }
@@ -78,8 +82,11 @@ public class LiveReCommedViewModel {
                 subscribe(new Consumer<HttpResponse<List<HomeFaceScoreColumn>>>() {
                     @Override
                     public void accept(HttpResponse<List<HomeFaceScoreColumn>> listHttpResponse) throws Exception {
-
-                        ToastUtils.getInstance().show("getFace ok");
+                        if (listHttpResponse == null) {
+                            view.onLoadBeautysSuccess(null);
+                        } else {
+                            view.onLoadBeautysSuccess(listHttpResponse.getData());
+                        }
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -95,8 +102,11 @@ public class LiveReCommedViewModel {
                 subscribe(new Consumer<HttpResponse<List<HomeRecommendHotCate>>>() {
                     @Override
                     public void accept(HttpResponse<List<HomeRecommendHotCate>> listHttpResponse) throws Exception {
-
-                        ToastUtils.getInstance().show("getOther ok");
+                        if (listHttpResponse == null) {
+                            view.onLoadOtherSuccess(null);
+                        } else {
+                            view.onLoadOtherSuccess(listHttpResponse.getData());
+                        }
                     }
                 }, new Consumer<Throwable>() {
                     @Override

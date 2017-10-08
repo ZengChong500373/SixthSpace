@@ -24,7 +24,5 @@ public class RecommendCarouselHolder extends RecyclerView.ViewHolder {
         return  binding;
     }
 
-    public void setData() {
 
-    }
 }

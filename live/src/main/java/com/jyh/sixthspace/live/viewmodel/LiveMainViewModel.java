@@ -28,7 +28,7 @@ public class LiveMainViewModel extends Observable {
                 List<HomeCateList> list = listHttpResponse.getData();
                 HomeCateList homeCateList=  new HomeCateList();
                 homeCateList.setTitle("推荐");
-                list.add(homeCateList);
+                list.add(0,homeCateList);
                 setChanged();
                 notifyObservers(list);
             }
