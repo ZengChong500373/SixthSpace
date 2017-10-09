@@ -7,33 +7,38 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.databinding.ActivityMainBinding;
 
-import com.jyh.sixthspace.sdk.utlis.StatusBarCompat;
+
+
 import com.jyh.sixthspace.ui.adapter.MainPagerAdapter;
 
-public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
-    BottomNavigationView navigation;
-    MainPagerAdapter mainPagerAdapter;
 
+import six.jyh.com.uilibrary.StatusBarUtil;
+
+public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding;
+    private BottomNavigationView navigation;
+    private MainPagerAdapter mainPagerAdapter;
+    private int mAlpha = StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA;
+    private int mStatusBarColor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        setStatusBar();
         initView();
     }
 
     private void initView() {
-        navigation = binding.include.navigation;
-        StatusBarCompat.compat(this,getResources().getColor(R.color.transparent));
+        navigation = binding.navigation;
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mainPagerAdapter=new MainPagerAdapter(getSupportFragmentManager());
-        binding.include.vpMain.setAdapter(mainPagerAdapter);
-        binding.include.vpMain.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        binding.vpMain.setAdapter(mainPagerAdapter);
+        binding.vpMain.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -41,7 +46,20 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                navigation.setSelectedItemId(position);
+                setStatusBar();
+               switch (position){
+
+                   case 0:
+                       navigation.setSelectedItemId(R.id.navigation_recommend);
+                       break;
+                   case 1:
+                       navigation.setSelectedItemId(R.id.navigation_movies);
+                       break;
+                   case 2:
+                       navigation.setSelectedItemId(R.id.navigation_live);
+                       break;
+               }
+
             }
 
             @Override
@@ -56,18 +74,26 @@ public class MainActivity extends AppCompatActivity {
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            setStatusBar();
             switch (item.getItemId()) {
                 case R.id.navigation_recommend:
-                    binding.include.vpMain.setCurrentItem(0);
+                    binding.vpMain.setCurrentItem(0);
                     return true;
                 case R.id.navigation_movies:
-                    binding.include.vpMain.setCurrentItem(1);
+                    binding.vpMain.setCurrentItem(1);
                     return true;
                 case R.id.navigation_live:
-                    binding.include.vpMain.setCurrentItem(2);
+                    binding.vpMain.setCurrentItem(2);
                     return true;
             }
             return false;
         }
     };
+
+
+    protected void setStatusBar() {
+//        mStatusBarColor = getResources().getColor(R.color.colorPrimary);
+//        StatusBarUtil.setColorForDrawerLayout(this, binding.drawerLayout, mStatusBarColor, mAlpha);
+        StatusBarUtil.setTranslucentForImageViewInFragment(this, null);
+    }
 }

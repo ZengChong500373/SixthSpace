@@ -1,6 +1,5 @@
 package com.jyh.sixthspace.live.ui.adapter;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;;
 import android.view.LayoutInflater;
