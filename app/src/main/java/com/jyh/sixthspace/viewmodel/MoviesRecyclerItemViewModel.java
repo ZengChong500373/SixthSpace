@@ -1,6 +1,6 @@
 package com.jyh.sixthspace.viewmodel;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
@@ -18,11 +18,11 @@ import com.jyh.sixthspace.ui.activity.MoviesTpyeListActivity;
 
 public class MoviesRecyclerItemViewModel extends BaseObservable{
     private VideoInfo info;
-    private Context mContext;
 
-    public MoviesRecyclerItemViewModel(VideoInfo info, Context mContext) {
+
+    public MoviesRecyclerItemViewModel(VideoInfo info) {
         this.info=info;
-        this.mContext=mContext;
+
     }
     public String getTitle(){
         return info.title;
@@ -41,8 +41,8 @@ public class MoviesRecyclerItemViewModel extends BaseObservable{
     }
 
     public void go2Activity(View view) {
-        Intent intent=new Intent(mContext, MoviesTpyeListActivity.class);
+        Intent intent=new Intent(view.getContext(), MoviesTpyeListActivity.class);
         intent.putExtra("videoInfo", info);
-        mContext.startActivity(intent);
+        view.getContext().startActivity(intent);
     }
 }

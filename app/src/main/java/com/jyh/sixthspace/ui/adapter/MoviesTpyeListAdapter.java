@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.jyh.sixthspace.R;
-import com.jyh.sixthspace.SixthApplication;
+
 import com.jyh.sixthspace.databinding.ActivityMoviesTypeListItemBinding;
 import com.jyh.sixthspace.sdk.bean.movie.VideoType;
 import com.jyh.sixthspace.viewmodel.MoviesTypeListItemViewModel;
@@ -54,7 +54,7 @@ public class MoviesTpyeListAdapter extends RecyclerView.Adapter<MoviesTpyeListAd
         }
         public void setData(VideoType info){
             if (binding.getViewModel()==null){
-                binding.setViewModel(new MoviesTypeListItemViewModel(info, SixthApplication.getContext()));
+                binding.setViewModel(new MoviesTypeListItemViewModel(info));
             }else {
                 binding.getViewModel().setData(info);
             }

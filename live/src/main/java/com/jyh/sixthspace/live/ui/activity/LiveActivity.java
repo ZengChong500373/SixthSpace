@@ -55,7 +55,7 @@ public class LiveActivity extends BaseActivity {
 
     private void initData() {
         Room_id = getIntent().getExtras().getString("Room_id");
-
+        Log.e("zcjyh","Room_id live Activity="+Room_id);
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(20, TimeUnit.SECONDS)
@@ -84,6 +84,8 @@ public class LiveActivity extends BaseActivity {
                     if (jsonObject.getInt("error") == 0) {
                         Gson gson = new Gson();
                         TempLiveVideoInfo mLiveVideoInfo = gson.fromJson(json, TempLiveVideoInfo.class);
+
+
                         show(mLiveVideoInfo.getData().getHls_url());
                     } else {
 
@@ -99,6 +101,7 @@ public class LiveActivity extends BaseActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                Log.e("zcjyh","show"+str);
                 jcVideoPlayerStandard.setUp(str
                         , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "");
                 jcVideoPlayerStandard.changeUiToPlayingShow();

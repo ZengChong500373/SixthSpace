@@ -1,6 +1,5 @@
 package com.jyh.sixthspace.ui.adapter;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +10,7 @@ import com.jyh.sixthspace.R;
 import com.jyh.sixthspace.databinding.FragmentMoviesRecyclerItemBinding;
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.viewmodel.MoviesRecyclerItemViewModel;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
 
 public class MoviesRecyclerAdapter extends RecyclerView.Adapter<MoviesRecyclerAdapter.MoviesRecyclerViewHolder> {
     private List<VideoInfo> list;
-    Context mContext;
+
 
     public MoviesRecyclerAdapter() {
         this.list = Collections.emptyList();
@@ -29,8 +29,8 @@ public class MoviesRecyclerAdapter extends RecyclerView.Adapter<MoviesRecyclerAd
     @Override
     public MoviesRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         FragmentMoviesRecyclerItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_movies_recycler_item, parent, false);
-       MoviesRecyclerViewHolder holder=new MoviesRecyclerViewHolder(binding.getRoot());
-        this.mContext=parent.getContext();
+        MoviesRecyclerViewHolder holder = new MoviesRecyclerViewHolder(binding.getRoot());
+
         holder.setBind(binding);
         return holder;
     }
@@ -47,15 +47,18 @@ public class MoviesRecyclerAdapter extends RecyclerView.Adapter<MoviesRecyclerAd
 
     public class MoviesRecyclerViewHolder extends RecyclerView.ViewHolder {
         FragmentMoviesRecyclerItemBinding binding;
+
         public MoviesRecyclerViewHolder(View itemView) {
             super(itemView);
         }
-        public void setBind( FragmentMoviesRecyclerItemBinding binding){
-            this.binding=binding;
+
+        public void setBind(FragmentMoviesRecyclerItemBinding binding) {
+            this.binding = binding;
         }
-        public void setData(VideoInfo info){
+
+        public void setData(VideoInfo info) {
             if (binding.getViewModel() == null) {
-                binding.setViewModel(new MoviesRecyclerItemViewModel(info,mContext));
+                binding.setViewModel(new MoviesRecyclerItemViewModel(info));
             } else {
                 binding.getViewModel().setData(info);
             }

@@ -1,6 +1,5 @@
 package com.jyh.sixthspace.viewmodel;
 
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
@@ -8,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 
-import com.jyh.sixthspace.SixthApplication;
 
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.sdk.bean.movie.VideoType;
@@ -21,11 +19,11 @@ import com.jyh.sixthspace.ui.activity.RecommendMovieInfosActivity;
 
 public class MoviesTypeListItemViewModel extends BaseObservable {
     private VideoType info;
-    private Context mContext;
 
-    public MoviesTypeListItemViewModel(VideoType info, Context mContext) {
+
+    public MoviesTypeListItemViewModel(VideoType info) {
         this.info=info;
-        this.mContext=mContext;
+
     }
     public String getTitle(){
         return info.title;
@@ -44,10 +42,11 @@ public class MoviesTypeListItemViewModel extends BaseObservable {
     }
 
     public void go2Activity(View view) {
-        Intent intent = new Intent(SixthApplication.getContext(), RecommendMovieInfosActivity.class);
+        Intent intent = new Intent(view.getContext(), RecommendMovieInfosActivity.class);
         VideoInfo videoInfo=new VideoInfo();
         videoInfo.setDataId(info.dataId);
         intent.putExtra("videoInfo", videoInfo);
-        mContext.startActivity(intent);
+        view.getContext().startActivity(intent);
+
     }
 }
