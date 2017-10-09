@@ -31,7 +31,6 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
     HomeRecommendHotCate carousel = new HomeRecommendHotCate();
     HomeRecommendHotCate hot = new HomeRecommendHotCate();
     HomeRecommendHotCate beautys = new HomeRecommendHotCate();
-    HomeRecommendHotCate other = new HomeRecommendHotCate();
     List<HomeRecommendHotCate> list = new ArrayList<HomeRecommendHotCate>();
     List<HomeCarousel> homeCarouselList;
     List<HomeHotColumn> homeHotList;
@@ -77,6 +76,7 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
                 if (carouselHolder.getBind().liveRecommendCarouse.getAdapter() == null) {
                     carouselViewPagerAdapter = new LiveMainCarouselViewPagerAdapter();
                     carouselHolder.getBind().liveRecommendCarouse.setAdapter(carouselViewPagerAdapter);
+
                 }
                 carouselViewPagerAdapter.setData(homeCarouselList);
                 break;
