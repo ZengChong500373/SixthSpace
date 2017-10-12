@@ -1,6 +1,6 @@
 package com.jyh.sixthspace.live.viewmodel;
 
-import android.util.Log;
+
 
 import com.jyh.sixthspace.live.utils.BaseParamsMapUtil;
 import com.jyh.sixthspace.sdk.bean.live.HomeCateList;

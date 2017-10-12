@@ -1,13 +1,15 @@
 package com.jyh.sixthspace.live.ui.adapter;
 
 import android.databinding.DataBindingUtil;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jyh.sixthspace.live.R;
-import com.jyh.sixthspace.live.databinding.FragmentLiveCarouseBinding;
+
+import com.jyh.sixthspace.live.databinding.FragmentLiveCarousesBinding;
 import com.jyh.sixthspace.live.databinding.FragmentLiveTypeBinding;
 import com.jyh.sixthspace.live.ui.holder.RecommendCarouselHolder;
 import com.jyh.sixthspace.live.ui.holder.RecommendCommonTypeHolder;
@@ -18,6 +20,8 @@ import com.jyh.sixthspace.sdk.bean.live.HomeRecommendHotCate;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 /**
  * Created by Administrator on 2017/10/7.
@@ -44,7 +48,7 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
         RecyclerView.ViewHolder holder = null;
         switch (viewType) {
             case VIEWPAGER:
-                FragmentLiveCarouseBinding pagerBind = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_carouse, parent, false);
+                FragmentLiveCarousesBinding pagerBind = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_live_carouses, parent, false);
                 RecommendCarouselHolder carouselHolder = new RecommendCarouselHolder(pagerBind.getRoot());
                 carouselHolder.setBind(pagerBind);
                 holder = carouselHolder;
@@ -75,9 +79,9 @@ public class LiveReCommendMainRecycleAdapter extends RecyclerView.Adapter {
                 RecommendCarouselHolder carouselHolder = (RecommendCarouselHolder) holder;
                 if (carouselHolder.getBind().liveRecommendCarouse.getAdapter() == null) {
                     carouselViewPagerAdapter = new LiveMainCarouselViewPagerAdapter();
-                    carouselHolder.getBind().liveRecommendCarouse.setAdapter(carouselViewPagerAdapter);
-
+                    carouselHolder.initIndicator(carouselViewPagerAdapter);
                 }
+                carouselHolder.setCircleCount(homeCarouselList.size());
                 carouselViewPagerAdapter.setData(homeCarouselList);
                 break;
             case HOT:

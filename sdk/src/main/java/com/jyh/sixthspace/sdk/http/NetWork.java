@@ -61,6 +61,7 @@ public class NetWork {
 
     public static <T> T  LiveBuilder(Class<T> service)
     {
+        initOkhttp();
         Retrofit  retrofit=new Retrofit.Builder()
                 .client(mOkHttpClient)
                 .baseUrl(LiveConStant.baseUrl)

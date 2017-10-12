@@ -1,6 +1,5 @@
 package com.jyh.sixthspace.live.viewmodel;
 
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;

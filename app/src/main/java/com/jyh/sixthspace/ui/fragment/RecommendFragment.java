@@ -1,5 +1,6 @@
 package com.jyh.sixthspace.ui.fragment;
 
+import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.SparseArray;
 
@@ -15,6 +16,9 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import six.jyh.com.uilibrary.ViewPagerIndicator.ScaleCircleNavigator;
+import six.jyh.com.uilibrary.ViewPagerIndicator.ViewPagerHelper;
+
 
 /**
  * Created by Administrator on 2017/4/13.
@@ -25,6 +29,8 @@ public class RecommendFragment extends LazyFragment<FragmentRecommendBinding> im
     RecommendViewModel recommendViewModel;
     RecommendRecyclerAdapter recyclerAdapter;
     RecommendViewPagerAdapter viewPagerAdapter;
+    ScaleCircleNavigator scaleCircleNavigator;
+
     @Override
     public int setFragmentView() {
         return R.layout.fragment_recommend;
@@ -35,9 +41,15 @@ public class RecommendFragment extends LazyFragment<FragmentRecommendBinding> im
         jyhBinding.recyclerRecommend.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerAdapter = new RecommendRecyclerAdapter();
         jyhBinding.recyclerRecommend.setAdapter(recyclerAdapter);
-        viewPagerAdapter=new RecommendViewPagerAdapter(getContext());
+        viewPagerAdapter = new RecommendViewPagerAdapter(getContext());
         jyhBinding.vpRecommend.setAdapter(viewPagerAdapter);
 
+        scaleCircleNavigator = new ScaleCircleNavigator(getContext());
+        scaleCircleNavigator.setNormalCircleColor(Color.LTGRAY);
+        int color = getContext().getResources().getColor(six.jyh.com.uilibrary.R.color.colorPrimary);
+        scaleCircleNavigator.setSelectedCircleColor(color);
+        jyhBinding.indicator.setNavigator(scaleCircleNavigator);
+        ViewPagerHelper.bind(jyhBinding.indicator, jyhBinding.vpRecommend);
 
     }
 
@@ -52,8 +64,9 @@ public class RecommendFragment extends LazyFragment<FragmentRecommendBinding> im
     public void update(Observable observable, Object arg) {
         if (observable instanceof RecommendViewModel) {
             RecommendViewModel recommendViewModel = (RecommendViewModel) observable;
-            SparseArray<List<VideoInfo>> mapInfos=recommendViewModel.getMapInfos();
+            SparseArray<List<VideoInfo>> mapInfos = recommendViewModel.getMapInfos();
             viewPagerAdapter.setData(mapInfos.get(0));
+            scaleCircleNavigator.setCircleCount(mapInfos.get(0).size());
             recyclerAdapter.setData(mapInfos.get(1));
             jyhBinding.vpRecommend.setOffscreenPageLimit(mapInfos.get(1).size());
         }

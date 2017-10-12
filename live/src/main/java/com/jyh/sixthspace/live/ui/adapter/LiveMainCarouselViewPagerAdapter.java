@@ -1,12 +1,16 @@
 package com.jyh.sixthspace.live.ui.adapter;
 
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.jyh.sixthspace.live.ui.activity.LiveActivity;
 import com.jyh.sixthspace.sdk.bean.live.HomeCarousel;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
+import com.jyh.sixthspace.sdk.utlis.ToastUtils;
 import com.jyh.sixthspace.sdk.utlis.UIUtils;
 
 import java.util.List;
@@ -40,13 +44,20 @@ public class LiveMainCarouselViewPagerAdapter extends PagerAdapter {
         container.removeView(imgs[position]);
     }
     @Override
-    public View instantiateItem(ViewGroup container, int position) {
+    public View instantiateItem(ViewGroup container, final int position) {
         ImageView imageView=new ImageView(container.getContext());
-
-
         ImgLoadUtils.loadImgByUrlcenterCrop(imageView, list.get(position).getTv_pic_url());
         imgs[position]=imageView;
         container.addView(imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), LiveActivity.class);
+                intent.putExtra("Room_id", list.get(position).getRoom().getRoom_id());
+                Log.e("zcjyh","Room_id="+list.get(position).getRoom().getRoom_id());
+                view.getContext().startActivity(intent);
+            }
+        });
         return imageView;
     }
 
