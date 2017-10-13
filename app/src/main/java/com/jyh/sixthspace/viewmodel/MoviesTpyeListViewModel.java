@@ -22,7 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MoviesTpyeListViewModel extends Observable {
     private VideoInfo info;
-    private int pageCount = 1;
+    private int pageCount = 20;
 
     public MoviesTpyeListViewModel(VideoInfo info) {
         this.info = info;

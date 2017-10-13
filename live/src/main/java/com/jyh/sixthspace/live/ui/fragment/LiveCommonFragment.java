@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.jyh.sixthspace.live.R;
 import com.jyh.sixthspace.live.databinding.FragmentLiveBinding;
-import com.jyh.sixthspace.sdk.base.LazyFragment;
+import six.jyh.com.uilibrary.base.LazyFragment;
 
 /**
  * Created by Administrator on 2017/9/30.

@@ -26,6 +26,8 @@ import io.reactivex.schedulers.Schedulers;
 
 public class RecommendViewModel extends Observable {
     private SparseArray<List<VideoInfo>> mapInfos;
+    private List<VideoInfo> filterList;
+    private List<VideoInfo> wonder;
 
     public RecommendViewModel() {
         this.mapInfos = new SparseArray<>();
@@ -39,7 +41,7 @@ public class RecommendViewModel extends Observable {
                 List<VideoType> list = videoResVideoHttpResponse.getRet().list;
                 SparseArray mapList = new SparseArray();
                 mapList.put(ReCommendConstant.RECOMMEND_VIEWPAGER, filterNoUseData(list, 0));
-                mapList.put(ReCommendConstant.RECOMMEND_RECYCLER, filterNoUseData(list, list.size()-3));
+                mapList.put(ReCommendConstant.RECOMMEND_RECYCLER, getWonderfulRecommend(list));
                 return mapList;
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<SparseArray<List<VideoInfo>>>() {
@@ -65,16 +67,17 @@ public class RecommendViewModel extends Observable {
     public SparseArray<List<VideoInfo>> getMapInfos() {
         return mapInfos;
     }
-   List<VideoInfo> filterList;
+
+
     public List<VideoInfo> filterNoUseData(List<VideoType> list, int position) {
-         filterList = new ArrayList<>();
+        filterList = new ArrayList<>();
         if (list.size() < position) {
             return filterList;
         }
         for (int i = 0; i < list.get(position).childList.size(); i++) {
             VideoInfo info = list.get(position).childList.get(i);
             String loadType = info.getLoadType();
-            if ("video".equalsIgnoreCase(loadType)||"videoList".equalsIgnoreCase(loadType)) {
+            if ("video".equalsIgnoreCase(loadType) || "videoList".equalsIgnoreCase(loadType)) {
                 filterList.add(info);
             }
 
@@ -85,5 +88,15 @@ public class RecommendViewModel extends Observable {
         return filterList;
     }
 
+
+    public List<VideoInfo> getWonderfulRecommend(List<VideoType> list) {
+        wonder = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).title.equals("精彩推荐")) {
+                wonder.addAll(list.get(i).childList);
+            }
+        }
+        return wonder;
+    }
 
 }

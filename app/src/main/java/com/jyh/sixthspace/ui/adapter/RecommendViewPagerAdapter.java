@@ -1,6 +1,7 @@
 package com.jyh.sixthspace.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
+import com.jyh.sixthspace.ui.activity.RecommendMovieInfosActivity;
 
 
 import java.util.ArrayList;
@@ -44,11 +46,19 @@ public class RecommendViewPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public View instantiateItem(ViewGroup container, int position) {
+    public View instantiateItem(ViewGroup container, final int position) {
         ImageView imageView=new ImageView(mContext);
         ImgLoadUtils.loadImgByUrlcenterCrop(imageView, listInfo.get(position).pic);
         imgs[position]=imageView;
         container.addView(imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), RecommendMovieInfosActivity.class);
+                intent.putExtra("videoInfo", listInfo.get(position));
+                view.getContext().startActivity(intent);
+            }
+        });
         return imageView;
     }
 

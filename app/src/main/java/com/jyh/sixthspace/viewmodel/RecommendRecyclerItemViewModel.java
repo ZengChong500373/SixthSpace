@@ -12,6 +12,7 @@ import com.jyh.sixthspace.SixthApplication;
 
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.sdk.utlis.ImgLoadUtils;
+import com.jyh.sixthspace.sdk.utlis.ToastUtils;
 import com.jyh.sixthspace.ui.activity.RecommendMovieInfosActivity;
 
 
@@ -21,10 +22,10 @@ import com.jyh.sixthspace.ui.activity.RecommendMovieInfosActivity;
 
 public class RecommendRecyclerItemViewModel extends BaseObservable {
     private VideoInfo info;
-  private  Context mContext;
-    public RecommendRecyclerItemViewModel(VideoInfo info, Context mContext) {
+
+    public RecommendRecyclerItemViewModel(VideoInfo info) {
         this.info = info;
-        this.mContext=mContext;
+
     }
 
     public String getTitle() {
@@ -45,9 +46,9 @@ public class RecommendRecyclerItemViewModel extends BaseObservable {
         notifyChange();
     }
     public void go2Activity(View view) {
-        Intent intent = new Intent(SixthApplication.getContext(), RecommendMovieInfosActivity.class);
+        Intent intent = new Intent(view.getContext(), RecommendMovieInfosActivity.class);
         intent.putExtra("videoInfo", info);
-        mContext.startActivity(intent);
+        view.getContext().startActivity(intent);
     }
 
 }

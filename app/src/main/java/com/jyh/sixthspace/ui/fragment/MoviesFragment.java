@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import com.jyh.sixthspace.R;
 
 import com.jyh.sixthspace.databinding.FragmentMovieBinding;
-import com.jyh.sixthspace.sdk.base.LazyFragment;
+import six.jyh.com.uilibrary.base.LazyFragment;
 import com.jyh.sixthspace.sdk.base.RequestCallBack;
 import com.jyh.sixthspace.sdk.bean.movie.VideoInfo;
 import com.jyh.sixthspace.ui.adapter.MoviesRecyclerAdapter;

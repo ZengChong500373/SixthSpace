@@ -3,7 +3,7 @@ package com.jyh.sixthspace.ui.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.jyh.sixthspace.sdk.base.BaseActivity;
+import six.jyh.com.uilibrary.base.BaseActivity;
 
 
 /**

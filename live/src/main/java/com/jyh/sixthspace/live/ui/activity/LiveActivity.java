@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 
-import com.google.gson.Gson;
+
 import com.jyh.sixthspace.live.R;
 
 import com.jyh.sixthspace.live.danmu.utils.DanmuProcess;
@@ -16,25 +16,16 @@ import com.jyh.sixthspace.live.databinding.ActivityLiveBinding;
 
 
 import com.jyh.sixthspace.live.viewmodel.LiveDanMuModel;
-import com.jyh.sixthspace.sdk.base.BaseActivity;
-import com.jyh.sixthspace.sdk.bean.live.TempLiveVideoInfo;
-
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 
 import java.util.Observable;
 import java.util.Observer;
-import java.util.concurrent.TimeUnit;
+
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 import master.flame.danmaku.ui.widget.DanmakuView;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import six.jyh.com.uilibrary.StatusBarUtil;
+
+import six.jyh.com.uilibrary.base.BaseActivity;
 
 /**
  * Created by Administrator on 2017/10/9.
@@ -98,7 +89,6 @@ public class LiveActivity extends BaseActivity implements Observer {
 
     @Override
     public void update(Observable observable, final Object obj) {
-
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -106,7 +96,7 @@ public class LiveActivity extends BaseActivity implements Observer {
                 Log.e("zcjyh", "show" + str);
                 jcVideoPlayerStandard.setUp(str
                         , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "");
-
+                jcVideoPlayerStandard.startVideo();
 
             }
         });

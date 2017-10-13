@@ -2,7 +2,6 @@ package com.jyh.sixthspace.live.ui.fragment;
 
 
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.jyh.sixthspace.live.R;
 
@@ -10,7 +9,7 @@ import com.jyh.sixthspace.live.R;
 import com.jyh.sixthspace.live.databinding.FragmentLiveMainBinding;
 import com.jyh.sixthspace.live.ui.adapter.LiveMainPagerAdapter;
 import com.jyh.sixthspace.live.viewmodel.LiveMainViewModel;
-import com.jyh.sixthspace.sdk.base.LazyFragment;
+import six.jyh.com.uilibrary.base.LazyFragment;
 import com.jyh.sixthspace.sdk.bean.live.HomeCateList;
 
 import java.util.List;

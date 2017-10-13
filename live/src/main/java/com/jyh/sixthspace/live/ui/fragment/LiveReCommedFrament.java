@@ -7,7 +7,7 @@ import com.jyh.sixthspace.live.databinding.FragmentLiveBinding;
 import com.jyh.sixthspace.live.ui.adapter.LiveReCommendMainRecycleAdapter;
 import com.jyh.sixthspace.live.view.LiveReCommedView;
 import com.jyh.sixthspace.live.viewmodel.LiveReCommedViewModel;
-import com.jyh.sixthspace.sdk.base.LazyFragment;
+import six.jyh.com.uilibrary.base.LazyFragment;
 import com.jyh.sixthspace.sdk.bean.live.HomeCarousel;
 import com.jyh.sixthspace.sdk.bean.live.HomeFaceScoreColumn;
 import com.jyh.sixthspace.sdk.bean.live.HomeHotColumn;

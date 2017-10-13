@@ -1,6 +1,5 @@
 package com.jyh.sixthspace.ui.adapter;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,7 +20,7 @@ import java.util.List;
 
 public class RecommendRecyclerAdapter extends RecyclerView.Adapter<RecommendRecyclerAdapter.RecommendViewHolder> {
     List<VideoInfo> list;
-    Context mContext;
+
     public RecommendRecyclerAdapter() {
         this.list = Collections.emptyList();
     }
@@ -32,7 +31,7 @@ public class RecommendRecyclerAdapter extends RecyclerView.Adapter<RecommendRecy
                 DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.fragment_recommend_recycler_item,
                         parent, false);
         RecommendViewHolder holder = new RecommendViewHolder(binding.getRoot());
-        this.mContext=parent.getContext();
+
         holder.setBind(binding);
         return holder;
     }
@@ -60,7 +59,7 @@ public class RecommendRecyclerAdapter extends RecyclerView.Adapter<RecommendRecy
 
         public void setData(VideoInfo info) {
             if (binding.getViewModel() == null) {
-                binding.setViewModel(new RecommendRecyclerItemViewModel(info,mContext));
+                binding.setViewModel(new RecommendRecyclerItemViewModel(info));
             } else {
                 binding.getViewModel().setData(info);
             }

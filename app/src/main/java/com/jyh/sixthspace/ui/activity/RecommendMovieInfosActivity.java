@@ -7,7 +7,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
 import com.jyh.sixthspace.R;
-import com.jyh.sixthspace.sdk.base.BaseActivity;
+import six.jyh.com.uilibrary.base.BaseActivity;
 import com.jyh.sixthspace.databinding.ActivityMovieInfosBinding;
 import com.jyh.sixthspace.sdk.base.Request2CallBack;
 

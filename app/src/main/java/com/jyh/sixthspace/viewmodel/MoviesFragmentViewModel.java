@@ -49,7 +49,7 @@ import io.reactivex.schedulers.Schedulers;
 public class MoviesFragmentViewModel {
     private RequestCallBack<List<VideoInfo>> callBack;
     private List<Integer> picList;
-    private int currentPicNum=0;
+
     public MoviesFragmentViewModel(RequestCallBack<List<VideoInfo>> callBack) {
         this.callBack = callBack;
         initData();
@@ -57,12 +57,14 @@ public class MoviesFragmentViewModel {
 
     public void initData() {
         picList = new ArrayList<>();
+
+        picList.add(R.drawable.movies_hot_infos);
         picList.add(R.drawable.moives_recmmend);
-        picList.add(R.drawable.movies_hollywood);
-        picList.add(R.drawable.movies_hongkong_film);
-        picList.add(R.drawable.movies_midnite_matinee);
+        picList.add(R.drawable.movies_big_shot);
+        picList.add(R.drawable.movies_frist_look);
         picList.add(R.drawable.movies_micro_film);
-        picList.add(R.drawable.movies_entertainment_information);
+        picList.add(R.drawable.movies_hongkong_film);
+        picList.add(R.drawable.movies_hollywood);
 
         NetWork.getVideo().getHomePage().map(new Function<VideoHttpResponse<VideoRes>, List<VideoInfo>>() {
             @Override
@@ -91,28 +93,22 @@ public class MoviesFragmentViewModel {
             if (!TextUtils.isEmpty(moreUrl)) {
                 VideoInfo info = new VideoInfo();
                 info.setTitle(list.get(i).title);
-                info.setLocalPic(picList.get(getPic()));
-                String catalogId=getCatalogId(moreUrl);
+                info.setLocalPic(picList.get(filterList.size()));
+                String catalogId = getCatalogId(moreUrl);
                 info.setCatalogId(catalogId);
                 filterList.add(info);
             }
         }
         return filterList;
     }
-    public int getPic(){
-        currentPicNum++;
-        if (currentPicNum<picList.size()){
-            return currentPicNum;
-        }else {
-            currentPicNum=0;
-            return currentPicNum;
-        }
-    }
+
     /**
-     *  String str= "http://api.svipmovie.com/front/columns/getNewsList.do?catalogId=402834815584e463015584e539700019&information=0";
-     *  只截取字符串中间的数字
-     * */
-    public String getCatalogId(String str){
-        return  str.split("catalogId=")[1].split("\\&")[0];
-    };
+     * String str= "http://api.svipmovie.com/front/columns/getNewsList.do?catalogId=402834815584e463015584e539700019&information=0";
+     * 只截取字符串中间的数字
+     */
+    public String getCatalogId(String str) {
+        return str.split("catalogId=")[1].split("\\&")[0];
+    }
+
+    ;
 }

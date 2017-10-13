@@ -29,7 +29,7 @@
         <activity
             android:name=".ui.activity.RecommendMovieInfosActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop" />
+            />
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.MoviesTpyeListActivity" />
         <activity android:name=".ui.activity.MovieDetailsActivity" />
