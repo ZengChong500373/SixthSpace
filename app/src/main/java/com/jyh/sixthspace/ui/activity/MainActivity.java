@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navigation;
     private MainPagerAdapter mainPagerAdapter;
     private int mAlpha = StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA;
-    private int mStatusBarColor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         navigation = binding.navigation;
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mainPagerAdapter=new MainPagerAdapter(getSupportFragmentManager());
         binding.vpMain.setAdapter(mainPagerAdapter);

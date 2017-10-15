@@ -5,6 +5,7 @@ import android.content.Context;
 import com.github.moduth.blockcanary.BlockCanary;
 import com.jyh.sixthspace.sdk.utlis.AppBlockCanaryContext;
 import com.jyh.sixthspace.sdk.utlis.CrashHandler;
+import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * Created by Administrator on 2017/9/26.
@@ -19,7 +20,8 @@ public class SixthSpaceSdk {
         mContext=initContext;
         CrashHandler.getInstance().init(mContext);
         /** 检测ui卡顿*/
-        BlockCanary.install(initContext, new AppBlockCanaryContext()).start();
+//        BlockCanary.install(initContext, new AppBlockCanaryContext()).start();
+        CrashReport.initCrashReport(mContext, "d89e25f3d1", false);
     }
     /**
      * 全局上下文
