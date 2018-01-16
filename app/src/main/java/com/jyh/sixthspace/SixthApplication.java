@@ -5,14 +5,14 @@ import android.content.Context;
 import com.jyh.sixthspace.sdk.SixthSpaceSdk;
 
 
-
 /**
  * Created by Administrator on 2017/4/8.
  */
 
 public class SixthApplication  extends Application{
     /**
-     * 上下文对象
+     *
+     *
      * */
     private static Context mContext;
     @Override

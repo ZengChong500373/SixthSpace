@@ -11,6 +11,7 @@ import com.jyh.sixthspace.sdk.bean.movie.VideoRes;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 
@@ -22,12 +23,12 @@ public interface VideoMethods {
      * http://api.svipmovie.com/front/homePageApi/homePage.do
      * @return
      */
-    @GET("homePageApi/homePage.do")
+    @POST("homePageApi/homePage.do")
     Observable<VideoHttpResponse<VideoRes>> getHomePage();
 
     /**
      * 影片详情
-     *http://api.svipmovie.com/front/videoDetailApi/videoDetail.do?mediaId=CMCC_00000000000000001_618540736
+     *http://api.svipmovie.com/front/videoDetailApi/videoDetail.do?mediaId=603f402830354dac9be6c5269b2527eb
      * @param mediaId 影片id
      * @return
      */
